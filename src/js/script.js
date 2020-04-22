@@ -84,17 +84,17 @@
       const thisProduct = this;
 
       /* [DONE] find the clickable trigger (the element that should react to clicking) */
-      const clickableElement = thisProduct.element.querySelector(select.menuProduct.clickable);
-      console.log('clickableElement:',clickableElement);
+      //const clickableElement = thisProduct.element.querySelector(select.menuProduct.clickable);
+      //console.log('clickableElement:',clickableElement);
 
       /* START: click event listener to trigger */
-      clickableElement.addEventListener('click', function(){
+      thisProduct.accordionTrigger.addEventListener('click', function(){
 
         /* [DONE] prevent default action for event */
         event.preventDefault();
 
         /* [DONE] toggle active class on element of thisProduct */
-        const parentClickableElement = clickableElement.parentElement;
+        const parentClickableElement = thisProduct.accordionTrigger.parentElement;
         parentClickableElement.classList.toggle('active');
 
         /* [DONE] find all active products */
