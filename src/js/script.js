@@ -97,7 +97,7 @@
 
         /* [DONE] toggle active class on element of thisProduct */
         const parentClickableElement = thisProduct.accordionTrigger.parentElement;
-        parentClickableElement.classList.toggle('active');
+        parentClickableElement.classList.toggle(classNames.menuProduct.wrapperActive);
 
         /* [DONE] find all active products */
         const allActiveProducts = document.querySelectorAll(select.all.menuProductsActive);
@@ -108,7 +108,7 @@
           /* START: if the active product isn't the element of thisProduct */
           if(product != parentClickableElement) {
             /*[DONE] remove class active for the active product */
-            product.classList.remove('active');
+            product.classList.remove(classNames.menuProduct.wrapperActive);
 
           /* END: if the active product isn't the element of thisProduct */
           }
