@@ -142,7 +142,48 @@
 
     processOrder() {
       const thisProduct = this;
-      console.log('processOrder');
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('formData:', formData);
+
+      /* [DONE] Get actual price for the product */
+      let actualPrice = parseInt(thisProduct.data.price);
+
+      /* START LOOP: For each param elments of products */
+      for(let param in thisProduct.data.params){
+
+        const paramElment = thisProduct.data.params[param];
+
+        /* START LOOP: for each value of param element */
+        for(let opt in paramElment.options) {
+
+          const paramElementValue = paramElment.options[opt];
+
+          /* START: If the option is selected and is not default */
+          if (formData.hasOwnProperty(param) && formData[param].indexOf(opt) != -1 && !paramElementValue.default) {
+            /* [DONE] Add price of the option to price of the product */
+            actualPrice += paramElementValue.price;
+
+          /* ELSE IF: If the option is not selected and it is default */
+          } else if(formData.hasOwnProperty(param) && formData[param].indexOf(opt) == -1 && paramElementValue.default) {
+
+            /* [DONE] Subtract price of the option from price of the product */
+            actualPrice -= paramElementValue.price;
+
+          /* ELSE IF: if any of the options were not selected */
+          } else if(formData[param] == null && paramElementValue.default) {
+
+            /*[DONE] subtract price of all defoult options*/
+            actualPrice -= paramElementValue.price;
+
+            /* END: If the option is selected and is not default*/
+          }
+        /* END LOOP: for each value of param element */
+        }
+      /* END LOOP: For each param elments of products */
+      }
+
+      /*[DONE] Add new price for the product */
+      thisProduct.priceElem.innerHTML = actualPrice;
 
     }
 
