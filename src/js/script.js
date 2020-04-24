@@ -87,7 +87,7 @@
 
       /* [DONE] find the clickable trigger (the element that should react to clicking) */
       //const clickableElement = thisProduct.element.querySelector(select.menuProduct.clickable);
-      //console.log('clickableElement:',clickableElement);
+      ////console.log('clickableElement:',clickableElement);
 
       /* START: click event listener to trigger */
       thisProduct.accordionTrigger.addEventListener('click', function(){
@@ -143,7 +143,7 @@
     processOrder() {
       const thisProduct = this;
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData:', formData);
+      //console.log('formData:', formData);
 
       /* [DONE] Get actual price for the product */
       let actualPrice = parseInt(thisProduct.data.price);
@@ -203,15 +203,15 @@
     constructor(element) {
       const thisWidget = this;
 
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor arguments:', element);
+      //console.log('AmountWidget:', thisWidget);
+      //console.log('constructor arguments:', element);
     }
   }
 
   const app = {
     initMenu: function() {
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
+      //console.log('thisApp.data:', thisApp.data);
 
       for(let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData]);
