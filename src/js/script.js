@@ -183,6 +183,9 @@
       /* END LOOP: For each param elments of products */
       }
 
+      /* [DONE] multiply actualPrice amount */
+      actualPrice *= thisProduct.amountWidget.value;
+
       /*[DONE] Add new price for the product */
       thisProduct.priceElem.innerHTML = actualPrice;
 
