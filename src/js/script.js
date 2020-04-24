@@ -219,6 +219,8 @@
       const thisWidget = this;
 
       thisWidget.getElements(element);
+      thisWidget.input.value = settings.amountWidget.defaultValue;
+      console.log('thisWidget.value', thisWidget.value);
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
 
@@ -235,6 +237,7 @@
 
       thisWidget.value = newValue;
       thisWidget.announce();
+
       thisWidget.input.value = thisWidget.value;
     }
 
