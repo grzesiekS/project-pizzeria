@@ -233,10 +233,11 @@
 
       const newValue = parseInt(value);
 
-      /* TODO: Add Validation */
-
-      thisWidget.value = newValue;
-      thisWidget.announce();
+      /* [DONE] TODO: Add Validation */
+      if(thisWidget.value != newValue && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+        thisWidget.value = newValue;
+        thisWidget.announce();
+      }
 
       thisWidget.input.value = thisWidget.value;
     }
