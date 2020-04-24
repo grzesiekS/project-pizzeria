@@ -211,8 +211,21 @@
     constructor(element) {
       const thisWidget = this;
 
+      thisWidget.getElements(element);
+
       console.log('AmountWidget:', thisWidget);
       console.log('constructor arguments:', element);
+    }
+
+    setValue(value) {
+      const thisWidget = this;
+
+      const newValue = parseInt(value);
+
+      /* TODO: Add Validation */
+
+      thisWidget.value = newValue;
+      thisWidget.input.value = thisWidget.value;
     }
 
     getElements(element){
