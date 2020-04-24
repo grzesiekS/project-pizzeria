@@ -195,6 +195,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
 
     }
   }
@@ -203,9 +204,10 @@
     constructor(element) {
       const thisWidget = this;
 
-      //console.log('AmountWidget:', thisWidget);
-      //console.log('constructor arguments:', element);
+      console.log('AmountWidget:', thisWidget);
+      console.log('constructor arguments:', element);
     }
+
   }
 
   const app = {
