@@ -144,7 +144,7 @@
     processOrder() {
       const thisProduct = this;
       const formData = utils.serializeFormToObject(thisProduct.form);
-      //console.log('formData:', formData);
+      console.log('formData:', formData);
 
       /* [DONE] Get actual price for the product */
       let actualPrice = parseInt(thisProduct.data.price);
@@ -178,6 +178,32 @@
 
             /* END: If the option is selected and is not default*/
           }
+          /* [DONE] create variable with selected elements */
+          const selectedElements = thisProduct.imageWrapper.querySelectorAll('.' + param + '-' + opt);
+
+          /* START: If option is selected */
+          if(formData.hasOwnProperty(param) && formData[param].indexOf(opt) != -1) {
+            /* START LOOP: for each of selected element */
+            for(let element of selectedElements) {
+              /* [DONE] add class active to selected image */
+              element.classList.add(classNames.menuProduct.imageVisible);
+
+            /* END LOOP: for each of selected element */
+            }
+
+          /* ELSE */
+          } else {
+
+            /* START LOOP: for each of selected element */
+            for(let element of selectedElements) {
+              /* [DONE] remove class active from selected image */
+              element.classList.remove(classNames.menuProduct.imageVisible);
+
+            /* END LOOP: for each of selected element */
+            }
+
+          /* END: If option is selected */
+          }
         /* END LOOP: for each value of param element */
         }
       /* END LOOP: For each param elments of products */
@@ -210,6 +236,7 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
 
     }
   }
