@@ -9,6 +9,8 @@ dataSource.products = {
     images: [
       '<img class="active" src="images/doughnut.svg">',
     ],
+    min: 1,
+    max: 9,
   },
   breakfast: {
     class: 'small',
@@ -30,6 +32,8 @@ dataSource.products = {
         },
       },
     },
+    min: 1,
+    max: 9,
   },
   pizza: {
     name: 'Nonna Alba\'s Pizza',
@@ -80,6 +84,8 @@ dataSource.products = {
         },
       },
     },
+    min: 1,
+    max: 9,
   },
   salad: {
     name: 'Nonno Alberto\'s Salad',
@@ -110,6 +116,8 @@ dataSource.products = {
         },
       },
     },
+    min: 1,
+    max: 9,
   },
 
 };
