@@ -124,3 +124,10 @@
   }
 
 }
+
+@media(max-width: 767px) {
+  .cart {
+    position: relative;
+    margin: 15px auto 0;
+  }
+}

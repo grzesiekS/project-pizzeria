@@ -125,3 +125,36 @@
   }
 
 }
+
+@media(max-width: 767px) {
+
+  .product__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .product__order {
+    width: 100%;
+    flex: 1;
+  }
+
+  .product__name {
+    font-size: 15px;
+  }
+
+  .product__icon {
+    top: 2px;
+    right: -25px;
+  }
+
+  .product__images {
+    display: block;
+  }
+
+}
+
+@media(max-width: 575px) {
+  .product__images {
+    display: none;
+  }
+}
