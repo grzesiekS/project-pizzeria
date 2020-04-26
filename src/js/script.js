@@ -29,6 +29,8 @@
         input: 'input[name="amount"]',
         linkDecrease: 'a[href="#less"]',
         linkIncrease: 'a[href="#more"]',
+        max: 'data-max',
+        min: 'data-min',
       },
     },
   };
@@ -302,6 +304,8 @@
       thisWidget.input = thisWidget.element.querySelector(select.widgets.amount.input);
       thisWidget.linkDecrease = thisWidget.element.querySelector(select.widgets.amount.linkDecrease);
       thisWidget.linkIncrease = thisWidget.element.querySelector(select.widgets.amount.linkIncrease);
+      thisWidget.maxValue = thisWidget.input.getAttribute(select.widgets.amount.max);
+      thisWidget.minValue = thisWidget.input.getAttribute(select.widgets.amount.min);
     }
 
   }
