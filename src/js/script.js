@@ -392,13 +392,17 @@
     }
 
     add(menuProduct) {
-      //const thisCart = this;
+      const thisCart = this;
 
-      /* create HTML code in const generatedHTML */
+      /* [DONE] create HTML code in const generatedHTML */
+      const generatedHTML= templates.cartProduct(menuProduct);
+      //console.log('generatedHTML', generatedHTML);
 
-      /* convert HTML code to DOM element */
+      /* [DONE] convert HTML code to DOM element */
+      thisCart.element = utils.createDOMFromHTML(generatedHTML);
 
-      /* Add DOM elements to thisCart.dom.productList */
+      /* [DONE] Add DOM elements to thisCart.dom.productList */
+      thisCart.dom.productList.appendChild(thisCart.element);
 
       console.log('adding product', menuProduct);
     }
