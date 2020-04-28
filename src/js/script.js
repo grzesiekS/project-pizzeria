@@ -391,6 +391,14 @@
 
       thisApp.initData();
       thisApp.initMenu();
+      thisApp.initCart();
+    },
+
+    initCart: function(){
+      const thisApp = this;
+
+      const cartElem = document.querySelector(select.containerOf.cart);
+      thisApp.cart = new Cart(cartElem);
     },
   };
 
