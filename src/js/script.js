@@ -183,6 +183,8 @@
       const formData = utils.serializeFormToObject(thisProduct.form);
       //console.log('formData:', formData);
 
+      thisProduct.params = {};
+
       /* [DONE] Get actual price for the product */
       let actualPrice = parseInt(thisProduct.data.price);
 
@@ -220,6 +222,16 @@
 
           /* START: If option is selected */
           if(formData.hasOwnProperty(param) && formData[param].indexOf(opt) != -1) {
+
+            if(!thisProduct.params[param]) {
+              thisProduct.params[param] = {
+                label: paramElment.label,
+                options: {},
+              };
+            }
+
+            thisProduct.params[param].options[opt] = paramElementValue.label;
+
             /* START LOOP: for each of selected element */
             for(let element of selectedElements) {
               /* [DONE] add class active to selected image */
@@ -247,10 +259,13 @@
       }
 
       /* [DONE] multiply actualPrice amount */
-      actualPrice *= thisProduct.amountWidget.value;
+      thisProduct.priceSingle = actualPrice;
+      thisProduct.price = thisProduct.priceSingle * thisProduct.amountWidget.value;
 
       /*[DONE] Add new price for the product */
-      thisProduct.priceElem.innerHTML = actualPrice;
+      thisProduct.priceElem.innerHTML = thisProduct.price;
+
+      console.log('Params:', thisProduct.params);
 
     }
 
@@ -266,6 +281,9 @@
 
     addToCart() {
       const thisProduct = this;
+
+      thisProduct.name = thisProduct.data.name;
+      thisProduct.amount = thisProduct.amountWidget.value;
 
       app.cart.add(thisProduct);
     }
@@ -376,6 +394,12 @@
     add(menuProduct) {
       //const thisCart = this;
 
+      /* create HTML code in const generatedHTML */
+
+      /* convert HTML code to DOM element */
+
+      /* Add DOM elements to thisCart.dom.productList */
+
       console.log('adding product', menuProduct);
     }
 
@@ -385,6 +409,7 @@
       thisCart.dom = {};
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+      thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
     }
   }
 
