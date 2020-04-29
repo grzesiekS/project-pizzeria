@@ -355,7 +355,9 @@
     announce() {
       const thisWidget = this;
 
-      const event = new Event('update');
+      const event = new CustomEvent('update', {
+        bubbles: true
+      });
       thisWidget.element.dispatchEvent(event);
     }
 
@@ -389,6 +391,10 @@
 
       thisCart.dom.toggleTrigger.addEventListener('click', function(){
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      });
+
+      thisCart.dom.productList.addEventListener('update', function(){
+        thisCart.update();
       });
     }
 
