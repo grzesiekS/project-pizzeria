@@ -285,8 +285,6 @@
       thisProduct.name = thisProduct.data.name;
       thisProduct.amount = thisProduct.amountWidget.value;
 
-      console.log('thisProduct.amount', thisProduct.amount);
-
       app.cart.add(thisProduct);
     }
 
@@ -312,7 +310,7 @@
       thisWidget.maxValue = parseInt(thisWidget.maxValue) ? thisWidget.maxValue : settings.amountWidget.defaultMax;
       thisWidget.minValue = parseInt(thisWidget.minValue) ? thisWidget.minValue : settings.amountWidget.defaultMin;
 
-      thisWidget.input.value = thisWidget.minValue;
+      thisWidget.input.value = parseInt(thisWidget.input.value) ? thisWidget.input.value : thisWidget.minValue;
       //console.log('thisWidget.value', thisWidget.value);
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
@@ -417,6 +415,7 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
+      thisCart.dom.amountWidget = thisCart.dom.wrapper.querySelector(select.cart.AmountWidget);
     }
   }
 
@@ -426,13 +425,41 @@
 
       thisCartProduct.id = menuProduct.id;
       thisCartProduct.name = menuProduct.name;
+      thisCartProduct.price = menuProduct.price;
       thisCartProduct.priceSingle = menuProduct.priceSingle;
       thisCartProduct.amount = menuProduct.amount;
       thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
 
       thisCartProduct.getElements(element);
+      thisCartProduct.initAmountWidget();
 
       console.log('thisCartProduct', thisCartProduct);
+    }
+
+    initAmountWidget() {
+      const thisCartProduct = this;
+
+      thisCartProduct.amountWidget = new AmountWidget(thisCartProduct.dom.amountWidget);
+
+      thisCartProduct.dom.amountWidget.addEventListener('update', function(){
+        thisCartProduct.processOrder();
+      });
+    }
+
+    processOrder() {
+      const thisCartProduct = this;
+
+      /* [DONE] create variable with actual cart product amount */
+      const actualAmount = thisCartProduct.amountWidget.value;
+      //console.log('actualAmount', actualAmount);
+
+      /* [DONE] calculate new price based on the actual cart product amount */
+      thisCartProduct.price = actualAmount * thisCartProduct.priceSingle;
+      //console.log('newPrice', thisCartProduct.price);
+
+      /* [DONE] Add new price to DOM element */
+      thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
+
     }
 
     getElements(element) {
