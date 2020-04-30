@@ -470,6 +470,7 @@
 
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
+      thisCartProduct.initActions();
 
       //console.log('thisCartProduct', thisCartProduct);
     }
@@ -497,6 +498,23 @@
 
       /* [DONE] Add new price to DOM element */
       thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
+
+    }
+
+    remove() {
+      const thisCartProduct = this;
+
+      const event = new CustomEvent('remove', {
+        bubbles: true,
+        detail: {
+          cartProduct: thisCartProduct,
+        },
+      });
+
+      thisCartProduct.dom.wrapper.dispatchEvent(event);
+    }
+
+    initActions() {
 
     }
 
