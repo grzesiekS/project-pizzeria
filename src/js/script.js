@@ -423,7 +423,12 @@
         totalNumber: thisCart.totalNumber,
         subtotalPrice: thisCart.subtotalPrice,
         deliveryFee: thisCart.deliveryFee,
+        products: [],
       };
+
+      for(let product of thisCart.products) {
+        payload.products.push(product.getData());
+      }
 
       const options = {
         method: 'POST',
@@ -612,6 +617,19 @@
         thisCartProduct.remove();
       });
 
+    }
+
+    getData() {
+      const thisCartProduct = this;
+      const CartProductData ={
+        id: thisCartProduct.id,
+        amount: thisCartProduct.amount,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        params: thisCartProduct.params,
+      };
+
+      return CartProductData;
     }
 
     getElements(element) {
