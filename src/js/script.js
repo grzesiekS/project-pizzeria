@@ -429,7 +429,8 @@
 
       for(let product of thisCart.products) {
         thisCart.subtotalPrice += product.price;
-        thisCart.totalNumber += product.amount;
+        //thisCart.totalNumber += product.amount;
+        thisCart.totalNumber += product.price/product.priceSingle;
       }
 
       thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
