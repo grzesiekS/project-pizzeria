@@ -623,7 +623,7 @@
       const thisCartProduct = this;
       const CartProductData ={
         id: thisCartProduct.id,
-        amount: thisCartProduct.amount,
+        amount: parseInt(thisCartProduct.dom.actualAmount.value),
         price: thisCartProduct.price,
         priceSingle: thisCartProduct.priceSingle,
         params: thisCartProduct.params,
@@ -638,6 +638,7 @@
       thisCartProduct.dom = {};
       thisCartProduct.dom.wrapper = element;
       thisCartProduct.dom.amountWidget = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.amountWidget);
+      thisCartProduct.dom.actualAmount = thisCartProduct.dom.amountWidget.querySelector('.amount');
       thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
       thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
       thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
