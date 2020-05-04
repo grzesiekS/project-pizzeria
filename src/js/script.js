@@ -179,6 +179,7 @@
         event.preventDefault();
         thisProduct.processOrder();
         thisProduct.addToCart();
+        thisProduct.defaultProductOption();
       });
 
     }
@@ -293,6 +294,45 @@
       app.cart.add(thisProduct);
     }
 
+    defaultProductOption() {
+      const thisProduct = this;
+
+      /* START LOOP: for all params of the selected product */
+      for(let param in thisProduct.data.params) {
+        /* [DONE] create const with all options of the selected product */
+        const optProdct = thisProduct.data.params[param];
+
+        /* START LOOP: for all options in params of the selected product */
+        for(let opt in optProdct.options) {
+
+          /* [DONE] create variable with element input and select that equals option*/
+          const inputElement = thisProduct.element.querySelector('[value="'+ opt +'"]');
+
+          /* START: If option is default */
+          if(optProdct.options[opt].default && inputElement != null) {
+            /* [DONE] change input element to checked*/
+            inputElement.checked = true;
+            inputElement.selected = true;
+          /* ELSE */
+          } else if(!optProdct.options[opt].default && inputElement != null) {
+            /* [DONE] uncheck input element */
+            inputElement.checked = false;
+
+          /* END: If option is default */
+          }
+        /* END LOOP: for all options in params of the selected product */
+        }
+      /* END LOOP: for all params of the selected product*/
+      }
+
+      /* [DONE] change quantity amount to min */
+      thisProduct.amountInput.value = parseInt(thisProduct.amountInput.getAttribute(select.widgets.amount.min));
+      thisProduct.initAmountWidget();
+
+      /*[DONE] run function process order */
+      thisProduct.processOrder();
+    }
+
     getElements(){
       const thisProduct = this;
 
@@ -303,7 +343,7 @@
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
-
+      thisProduct.amountInput = thisProduct.amountWidgetElem.querySelector('.amount');
     }
   }
 
