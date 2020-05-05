@@ -1,3 +1,6 @@
+import {select, settings, utils, templates, classNames} from '../settings.js';
+import CartProduct from './CartProduct.js';
+
 class Cart {
   constructor(element){
     const thisCart = this;
@@ -165,3 +168,5 @@ class Cart {
     thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
   }
 }
+
+export default Cart;

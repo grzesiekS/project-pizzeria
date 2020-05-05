@@ -1,3 +1,6 @@
+import {templates, utils, select, classNames} from '../settings.js';
+import AmountWidget from './AmountWidget.js';
+
 class Product {
   constructor(id , data){
     const thisProduct = this;
@@ -251,3 +254,5 @@ class Product {
     thisProduct.amountInput = thisProduct.amountWidgetElem.querySelector('.amount');
   }
 }
+
+export default Product;
