@@ -305,7 +305,7 @@
         /* START LOOP: for all options in params of the selected product */
         for(let opt in optProdct.options) {
 
-          /* [DONE] create variable with element input and select that equals option*/
+          /* [DONE] create variable with html element input and select which value equals option of the parameter*/
           const inputElement = thisProduct.element.querySelector('[value="'+ opt +'"]');
 
           /* START: If option is default */
