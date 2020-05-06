@@ -1,6 +1,7 @@
 import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
+import {Booking} from './components/Booking.js';
 
 const app = {
   initPages: function() {
@@ -87,6 +88,17 @@ const app = {
     thisApp.data = {};
   },
 
+  initBooking: function() {
+    const thisApp = this;
+
+    /* [DONE] get booking wrapper */
+    thisApp.bookingWrapper = document.querySelector(select.containerOf.booking);
+
+    /* create new instance of class Booking */
+    thisApp.booking = new Booking(thisApp.bookingWrapper);
+
+  },
+
   init: function(){
     const thisApp = this;
     //console.log('*** App starting ***');
@@ -99,6 +111,7 @@ const app = {
 
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initBooking();
   },
 
   initCart: function(){
