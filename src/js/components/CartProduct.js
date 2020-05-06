@@ -56,7 +56,7 @@ class CartProduct {
     });
 
     thisCartProduct.dom.wrapper.dispatchEvent(event);
-    console.log('remove thisCartProduct', thisCartProduct);
+    //console.log('remove thisCartProduct', thisCartProduct);
   }
 
   initActions() {
