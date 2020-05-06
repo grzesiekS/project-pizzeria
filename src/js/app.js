@@ -94,7 +94,11 @@ const app = {
     /* [DONE] get booking wrapper */
     thisApp.bookingWrapper = document.querySelector(select.containerOf.booking);
 
+<<<<<<< HEAD
     /* [DONE] create new instance of class Booking */
+=======
+    /* create new instance of class Booking */
+>>>>>>> 6da6f29a687c940ae0375e35fd5519ed6248ac40
     thisApp.booking = new Booking(thisApp.bookingWrapper);
 
   },
