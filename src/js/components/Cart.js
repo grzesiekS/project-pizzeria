@@ -39,6 +39,9 @@ class Cart {
     const thisCart = this;
     const url = settings.db.url + '/' + settings.db.order;
 
+    thisCart.checkPhoneNumber();
+    thisCart.checkAddress();
+
     const payload = {
       address: thisCart.dom.address.value,
       phone: thisCart.dom.phone.value,
@@ -68,6 +71,30 @@ class Cart {
       .then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
       });
+  }
+
+  checkPhoneNumber() {
+    const thisCart = this;
+
+    if(thisCart.dom.phone.value.length >= 9) {
+      thisCart.dom.phone.classList.remove(classNames.cart.fieldError);
+      return true;
+    } else {
+      thisCart.dom.phone.classList.add(classNames.cart.fieldError);
+      return false;
+    }
+  }
+
+  checkAddress() {
+    const thisCart = this;
+
+    if(thisCart.dom.address.value != ''){
+      thisCart.dom.address.classList.remove(classNames.cart.fieldError);
+      return true;
+    } else {
+      thisCart.dom.address.classList.add(classNames.cart.fieldError);
+      return false;
+    }
   }
 
   add(menuProduct) {

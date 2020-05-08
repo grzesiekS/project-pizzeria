@@ -81,6 +81,7 @@ export const classNames = {
   // CODE ADDED START
   cart: {
     wrapperActive: 'active',
+    fieldError: 'error',
   },
   // CODE ADDED END
   booking: {
