@@ -8,12 +8,7 @@ class AmountWidget extends BaseWidget {
     const thisWidget = this;
     thisWidget.getElements(element);
 
-    // thisWidget.dom.maxValue = parseInt(thisWidget.dom.maxValue) ? thisWidget.dom.maxValue : settings.amountWidget.defaultMax;
-    // thisWidget.dom.minValue = parseInt(thisWidget.dom.minValue) ? thisWidget.dom.minValue : settings.amountWidget.defaultMin;
-
-    //thisWidget.dom.input.value = parseInt(thisWidget.dom.input.value) ? thisWidget.dom.input.value : thisWidget.dom.minValue;
     //console.log('thisWidget.value', thisWidget.value);
-    thisWidget.setValue(settings.amountWidget.defaultValue);
     thisWidget.initActions();
 
     //console.log('AmountWidget:', thisWidget);

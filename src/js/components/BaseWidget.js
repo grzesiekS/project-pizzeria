@@ -4,7 +4,8 @@ class BaseWidget{
 
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
-    thisWidget.dom.value = initialValue;
+
+    thisWidget.value = initialValue;
 
   }
 
