@@ -55,6 +55,7 @@ export const select = {
     formSubmit: '.cart__order [type="submit"]',
     phone: '[name="phone"]',
     address: '[name="address"]',
+    orderWrapper: '.cart__order-confirmation',
   },
   cartProduct: {
     amountWidget: '.widget-amount',
