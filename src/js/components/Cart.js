@@ -143,6 +143,9 @@ class Cart {
       }
     }
 
+    /*[DONE] init method to add animation for TotalNumber */
+    thisCart.addAnimationTotalNumber();
+
   }
 
   remove(cartProduct) {
@@ -181,6 +184,24 @@ class Cart {
     }
   }
 
+  addAnimationTotalNumber() {
+    const thisCart = this;
+    /* [DONE] Add class addToCart to start animation */
+    thisCart.dom.cartTotalNumber.classList.add('addToCart');
+
+    /* [DONE] create dom object with actual totalNumber element */
+    const totalNumberElemen = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
+
+    /* [DONE] find totalNumber and remove it */
+    totalNumberElemen.remove();
+
+    /* [DONE] Convert dom elemnt into HTML */
+    const generatedHTML = thisCart.dom.cartTotalNumber.outerHTML;
+
+    /* [DONE] Add html to cart section */
+    thisCart.dom.toggleTrigger.insertAdjacentHTML('afterbegin', generatedHTML);
+  }
+
   getElements(element) {
     const thisCart = this;
 
@@ -200,6 +221,7 @@ class Cart {
     thisCart.dom.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
     thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
     thisCart.dom.cartOrderWrapper = thisCart.dom.wrapper.querySelector(select.cart.orderWrapper);
+    thisCart.dom.cartTotalNumber = thisCart.dom.wrapper.querySelector(select.cart.totalNumber);
   }
 }
 
