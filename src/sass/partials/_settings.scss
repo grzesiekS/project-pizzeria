@@ -112,3 +112,30 @@ $base-size: 12px;
     transform: rotateX(0deg);
   }
 }
+
+@keyframes changeScale {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  25% {
+    opacity: 0.8;
+    scale: 1.2;
+  }
+
+  50% {
+    opacity: 0.5;
+    scale: 1.6;
+  }
+
+  75% {
+    opacity: 0.8;
+    scale: 1.2;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
