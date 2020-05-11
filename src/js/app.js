@@ -100,12 +100,12 @@ const app = {
   },
 
   initStickyHeader: function() {
-    window.onscroll = function() {myFunction();};
+    window.onscroll = function() {addStickyClass();};
 
     const header = document.querySelector('.header');
     const sticky = header.offsetTop;
 
-    function myFunction() {
+    function addStickyClass() {
       if (window.pageYOffset > sticky) {
         header.classList.add('sticky');
       } else {
