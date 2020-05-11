@@ -43,6 +43,8 @@ class Cart {
   sendOrder() {
     const thisCart = this;
     const url = settings.db.url + '/' + settings.db.order;
+    thisCart.checkAddress();
+    thisCart.checkPhoneNumber();
 
     if(thisCart.checkPhoneNumber() && thisCart.checkAddress()) {
       const payload = {
