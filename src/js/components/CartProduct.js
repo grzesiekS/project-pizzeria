@@ -12,11 +12,37 @@ class CartProduct {
     thisCartProduct.amount = menuProduct.amount;
     thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
 
+    thisCartProduct.paramsOptionsId(thisCartProduct.params);
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
     thisCartProduct.initActions();
 
     //console.log('thisCartProduct', thisCartProduct);
+  }
+
+  paramsOptionsId(params) {
+    const thisCartProduct = this;
+    /* [DONE] Create new empty object with id of parameter and option */
+    thisCartProduct.paramsId = {};
+
+    /*START LOOP: for all parameters in params*/
+    for(let param in params) {
+      /* [DONE] Create const with param id*/
+      const paramId = params[param].options;
+
+      /*[DONE] Add paramId to new object */
+      thisCartProduct.paramsId[param] = {
+        optId: {},
+      };
+      /*START LOOP: for all options in param*/
+      for(let opt in paramId){
+        /* [DONE] Add id of an options to new object*/
+        thisCartProduct.paramsId[param].optId[opt] = opt;
+
+      /*END LOOP: for all options in param*/
+      }
+    /*END LOOP: for all parameters in params*/
+    }
   }
 
   initAmountWidget() {
