@@ -2,11 +2,24 @@
   padding: ($base-size * 5) 0 ($base-size * 8) 0;
   background: $color-dark;
   color: $color-light;
+  margin-top: 20px;
 
   &__wrapper {
     position: relative;
   }
 
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  margin-top: 0;
+}
+
+.sticky + #pages {
+  padding-top: 250px;
 }
 
 .logo {
