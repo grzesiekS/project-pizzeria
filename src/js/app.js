@@ -99,6 +99,21 @@ const app = {
 
   },
 
+  initStickyHeader: function() {
+    window.onscroll = function() {myFunction();};
+
+    const header = document.querySelector('.header');
+    const sticky = header.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add('sticky');
+      } else {
+        header.classList.remove('sticky');
+      }
+    }
+  },
+
   init: function(){
     const thisApp = this;
     //console.log('*** App starting ***');
@@ -112,6 +127,7 @@ const app = {
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    thisApp.initStickyHeader();
   },
 
   initCart: function(){
