@@ -106,7 +106,7 @@ class CartProduct {
       amount: parseInt(thisCartProduct.dom.actualAmount.value),
       price: thisCartProduct.price,
       priceSingle: thisCartProduct.priceSingle,
-      params: thisCartProduct.params,
+      params: thisCartProduct.paramsId,
     };
 
     return CartProductData;
