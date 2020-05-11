@@ -32,12 +32,12 @@ class CartProduct {
 
       /*[DONE] Add paramId to new object */
       thisCartProduct.paramsId[param] = {
-        optId: {},
+        //optId: {},
       };
       /*START LOOP: for all options in param*/
       for(let opt in paramId){
         /* [DONE] Add id of an options to new object*/
-        thisCartProduct.paramsId[param].optId[opt] = opt;
+        thisCartProduct.paramsId[param][opt] = opt;
 
       /*END LOOP: for all options in param*/
       }
