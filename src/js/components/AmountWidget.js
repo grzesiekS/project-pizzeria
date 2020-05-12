@@ -8,7 +8,8 @@ class AmountWidget extends BaseWidget {
     const thisWidget = this;
     thisWidget.getElements(element);
 
-    //console.log('thisWidget.value', thisWidget.value);
+    thisWidget.value = thisWidget.dom.input.value;
+    // console.log('thisWidget.value', thisWidget.value);
     thisWidget.initActions();
 
     //console.log('AmountWidget:', thisWidget);
