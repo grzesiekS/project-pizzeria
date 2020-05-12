@@ -123,7 +123,7 @@ export class Booking {
   updateDOM() {
     const thisBooking = this;
 
-    thisBooking.date = thisBooking.datePicker.value;
+    thisBooking.date = thisBooking.datePicker.dom.input.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
     let allAvailable = false;
