@@ -33,8 +33,9 @@ class DatePicker extends BaseWidget{
           return (date.getDay() === 1);
         }
       ],
-      onChange: function(dateObj){
-        thisWidget.value = dateObj[0];
+      onChange: function(dateObj, dataStr){
+        //thisWidget.value = dateObj[0];
+        thisWidget.value = dataStr;
       }
     });
   }
@@ -45,6 +46,10 @@ class DatePicker extends BaseWidget{
 
   renderValue() {
 
+  }
+
+  isValid(value){
+    return isNaN(value);
   }
 }
 
