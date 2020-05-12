@@ -100,18 +100,16 @@ const app = {
   },
 
   initStickyHeader: function() {
-    window.onscroll = function() {addStickyClass();};
+    window.onscroll = function() {
+      const header = document.querySelector('.header');
+      const sticky = header.offsetTop;
 
-    const header = document.querySelector('.header');
-    const sticky = header.offsetTop;
-
-    function addStickyClass() {
       if (window.pageYOffset > sticky) {
         header.classList.add('sticky');
       } else {
         header.classList.remove('sticky');
       }
-    }
+    };
   },
 
   init: function(){
