@@ -239,14 +239,13 @@ export class Booking {
     if(!tableVerifyResult) {
       const duration = parseInt(thisBooking.dom.hoursAmount.querySelector('input').value);
       const pplAmount = parseInt(thisBooking.dom.peopleAmount.querySelector('input').value);
-      const tableSelected = parseInt(thisBooking.dom.bookingWrapper
-        .querySelector(select.booking.tables + '.' + classNames.booking.tableSelected)
-        .getAttribute('data-table'));
+      const tableSelected = thisBooking.dom.bookingWrapper
+        .querySelector(select.booking.tables + '.' + classNames.booking.tableSelected);
 
       const payload = {
         date: thisBooking.datePicker.value,
         hour: thisBooking.hourPicker.value,
-        table: tableSelected,
+        table: parseInt(tableSelected.getAttribute('data-table')),
         duration: duration,
         ppl: pplAmount,
         starters: [],
