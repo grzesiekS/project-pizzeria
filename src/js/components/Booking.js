@@ -127,6 +127,9 @@ export class Booking {
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
+    /*[DONE] remove active class from table */
+    thisBooking.removeActiveTables();
+
     let allAvailable = false;
 
     if(
