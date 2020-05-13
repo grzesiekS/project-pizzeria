@@ -11,7 +11,7 @@ export class Booking {
     thisBooking.render(element);
     thisBooking.initWdgets();
     thisBooking.getData();
-    thisBooking.tableSelection();
+    thisBooking.initActions();
   }
 
   getData() {
@@ -159,7 +159,7 @@ export class Booking {
 
   }
 
-  tableSelection(){
+  initActions(){
     const thisBooking = this;
 
     /*[DONE] Add eventListener to all table object */
@@ -167,7 +167,6 @@ export class Booking {
       table.addEventListener('click', function(){
         /*[DONE] toggle class active to selected table */
         thisBooking.addActiveTable(table);
-
       });
     }
 
@@ -207,6 +206,27 @@ export class Booking {
 
   }
 
+  bookTable() {
+    const thisBooking = this;
+    const url = settings.db.url + '/' + settings.db.booking;
+
+    const payload = {
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      table: thisBooking.dom.bookingWrapper.querySelector(select.booking.tables + '.' + classNames.booking.tableSelected),
+      duration: thisBooking.dom.hoursAmount.value,
+      ppl: thisBooking.dom.peopleAmount.value,
+      starters: [],
+    };
+
+    /*START LOOP: For all inputs in checkbox for starters */
+    for(let input of thisBooking.dom.starters){
+      console.log(input);
+      /*END LOOP: For all inputs in checkbox for starters */
+    }
+
+  }
+
   render(element) {
     const thisBooking = this;
 
@@ -227,6 +247,8 @@ export class Booking {
     thisBooking.dom.hourPicker = thisBooking.dom.bookingWrapper.querySelector(select.widgets.hourPicker.wrapper);
 
     thisBooking.dom.tables = thisBooking.dom.bookingWrapper.querySelectorAll(select.booking.tables);
+
+    thisBooking.dom.starters = thisBooking.dom.bookingWrapper.querySelectorAll(select.booking.startersInput);
   }
 
   initWdgets() {
