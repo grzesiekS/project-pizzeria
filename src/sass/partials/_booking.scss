@@ -147,6 +147,7 @@
     transform: rotate(45deg);
     transform-origin: 50% 50%;
     cursor: pointer;
+    transition: all 1s ease-in-out;
 
     &--round {
       border-radius: 50%;
@@ -174,7 +175,10 @@
 
     }
     &.active {
-      background-color: green;
+      background-color: $color-main;
+      transform: scale(1.3);
+      color: $color-light;
+      font-size: 15px;
     }
   }
 
