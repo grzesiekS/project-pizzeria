@@ -72,6 +72,7 @@ export const select = {
     bookingForm: '.booking-form',
     phone: '[name="phone"]',
     address: '[name="address"]',
+    confirmationWrapper: '.order-confirmation',
   },
   nav: {
     links: '.main-nav a',
