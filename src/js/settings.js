@@ -70,6 +70,8 @@ export const select = {
     tables: '.floor-plan .table',
     startersInput: '.booking-options .checkbox input',
     bookingForm: '.booking-form',
+    phone: '[name="phone"]',
+    address: '[name="address"]',
   },
   nav: {
     links: '.main-nav a',
