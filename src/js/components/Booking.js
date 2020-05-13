@@ -179,6 +179,12 @@ export class Booking {
       thisBooking.removeActiveTables();
     });
 
+    /* Add event listener for change in the Order Confirmation wrapper */
+    thisBooking.dom.OrderConfWrapp.addEventListener('change', function(){
+      thisBooking.checkPhoneNumber(thisBooking.dom.phone);
+      thisBooking.checkAddress(thisBooking.dom.address);
+    });
+
     /*[DONE] Add event listener for submit*/
     thisBooking.dom.form.addEventListener('submit', function(){
       event.preventDefault();
@@ -348,6 +354,7 @@ export class Booking {
 
     thisBooking.dom.address = thisBooking.dom.bookingWrapper.querySelector(select.booking.address);
     thisBooking.dom.phone = thisBooking.dom.bookingWrapper.querySelector(select.booking.phone);
+    thisBooking.dom.OrderConfWrapp = thisBooking.dom.bookingWrapper.querySelector(select.booking.confirmationWrapper);
   }
 
   initWdgets() {
