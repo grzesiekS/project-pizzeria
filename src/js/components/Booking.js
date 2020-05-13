@@ -173,6 +173,7 @@ export class Booking {
     /*[DONE] Add event listener for submit*/
     thisBooking.dom.form.addEventListener('submit', function(){
       event.preventDefault();
+      thisBooking.bookTable();
     });
 
   }
@@ -215,21 +216,50 @@ export class Booking {
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.booking;
 
+    const duration = parseInt(thisBooking.dom.hoursAmount.querySelector('input').value);
+    const pplAmount = parseInt(thisBooking.dom.peopleAmount.querySelector('input').value);
+    const tableSelected = parseInt(thisBooking.dom.bookingWrapper
+      .querySelector(select.booking.tables + '.' + classNames.booking.tableSelected)
+      .getAttribute('data-table'));
+
     const payload = {
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
-      table: thisBooking.dom.bookingWrapper.querySelector(select.booking.tables + '.' + classNames.booking.tableSelected),
-      duration: thisBooking.dom.hoursAmount.value,
-      ppl: thisBooking.dom.peopleAmount.value,
+      table: tableSelected,
+      duration: duration,
+      ppl: pplAmount,
       starters: [],
     };
 
     /*START LOOP: For all inputs in checkbox for starters */
     for(let input of thisBooking.dom.starters){
-      console.log(input);
+      /*IF: input is checked */
+      if(input.checked){
+        /* [DONE] Add input value to payload.starters */
+        payload.starters.push(input.value);
+      /*END IF*/
+      }
       /*END LOOP: For all inputs in checkbox for starters */
     }
 
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload),
+    };
+
+    fetch(url, options)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(parsedResponse){
+        console.log('parsedResponse', parsedResponse);
+        thisBooking.getData();
+      });
+
+    thisBooking.removeActiveTables();
   }
 
   render(element) {
