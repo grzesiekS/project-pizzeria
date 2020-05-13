@@ -170,6 +170,11 @@ export class Booking {
       });
     }
 
+    /*[DONE] Add event listener for submit*/
+    thisBooking.dom.form.addEventListener('submit', function(){
+      event.preventDefault();
+    });
+
   }
 
   removeActiveTables(){
@@ -249,6 +254,7 @@ export class Booking {
     thisBooking.dom.tables = thisBooking.dom.bookingWrapper.querySelectorAll(select.booking.tables);
 
     thisBooking.dom.starters = thisBooking.dom.bookingWrapper.querySelectorAll(select.booking.startersInput);
+    thisBooking.dom.form = thisBooking.dom.bookingWrapper.querySelector(select.booking.bookingForm);
   }
 
   initWdgets() {
