@@ -11,6 +11,7 @@ export class Booking {
     thisBooking.render(element);
     thisBooking.initWdgets();
     thisBooking.getData();
+    thisBooking.tableSelection();
   }
 
   getData() {
@@ -151,6 +152,54 @@ export class Booking {
       } else {
         table.classList.remove(classNames.booking.tableBooked);
       }
+    }
+
+  }
+
+  tableSelection(){
+    const thisBooking = this;
+
+    /*[DONE] Add eventListener to all table object */
+    for(let table of thisBooking.dom.tables){
+      table.addEventListener('click', function(){
+        /*[DONE] toggle class active to selected table */
+        thisBooking.addActiveTable(table);
+
+      });
+    }
+
+  }
+
+  removeActiveTables(){
+    const thisBooking = this;
+
+    /*START LOOP: For all tables */
+    for(let table of thisBooking.dom.tables) {
+      /* [DONE] remove active class from all tables */
+      table.classList.remove(classNames.booking.tableSelected);
+    }
+    /*END LOOP: For all tables */
+  }
+
+  addActiveTable(tableSelected) {
+    const thisBooking = this;
+
+    const tableClassAtr = tableSelected.getAttribute('class');
+    /*IF: selected element includes class booked*/
+    if(!tableClassAtr.includes(classNames.booking.tableBooked)){
+
+      /*[DONE] Remove active class */
+      thisBooking.removeActiveTables();
+
+      /*[DONE] Add active Class */
+      tableSelected.classList.add(classNames.booking.tableSelected);
+    /*END IF*/
+    }
+
+    /*IF: selected element includes class active */
+    if(tableClassAtr.includes(classNames.booking.tableSelected)){
+      thisBooking.removeActiveTables();
+    /*END IF*/
     }
 
   }
