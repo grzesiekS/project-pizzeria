@@ -221,6 +221,10 @@ export class Booking {
 
   }
 
+  blockTable(table) {
+    table.classList.add(classNames.booking.tableBooked);
+  }
+
   verifyTableSelection() {
     const thisBooking = this;
 
@@ -279,6 +283,7 @@ export class Booking {
           thisBooking.getData();
         });
 
+      thisBooking.blockTable(tableSelected);
       thisBooking.removeActiveTables();
     /* END IF */
     }
