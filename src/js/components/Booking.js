@@ -234,13 +234,43 @@ export class Booking {
     return bookedTable == null ? true : false;
   }
 
+  checkPhoneNumber(phoneNumberObj) {
+
+    if(phoneNumberObj.value.length >= 9) {
+      phoneNumberObj.classList.remove(classNames.cart.fieldError);
+      return true;
+    } else {
+      phoneNumberObj.classList.add(classNames.cart.fieldError);
+      return false;
+    }
+  }
+
+  checkAddress(addressObj) {
+
+    if(addressObj.value != ''){
+      addressObj.classList.remove(classNames.cart.fieldError);
+      return true;
+    } else {
+      addressObj.classList.add(classNames.cart.fieldError);
+      return false;
+    }
+  }
+
   bookTable() {
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.booking;
     const tableVerifyResult = thisBooking.verifyTableSelection();
+    const phoneNumberObj = thisBooking.dom.phone;
+    const addressObj = thisBooking.dom.address;
+
+    thisBooking.checkPhoneNumber(phoneNumberObj);
+    thisBooking.checkAddress(addressObj);
 
     /* IF: verify if table was selected */
-    if(!tableVerifyResult) {
+    if(!tableVerifyResult
+      && thisBooking.checkPhoneNumber(phoneNumberObj)
+      && thisBooking.checkAddress(addressObj)) {
+
       const duration = parseInt(thisBooking.dom.hoursAmount.querySelector('input').value);
       const pplAmount = parseInt(thisBooking.dom.peopleAmount.querySelector('input').value);
       const tableSelected = thisBooking.dom.bookingWrapper
@@ -253,8 +283,8 @@ export class Booking {
         duration: duration,
         ppl: pplAmount,
         starters: [],
-        address: thisBooking.dom.address.value,
-        phone: thisBooking.dom.phone.value,
+        address: addressObj.value,
+        phone: phoneNumberObj.value,
       };
 
       /*START LOOP: For all inputs in checkbox for starters */
