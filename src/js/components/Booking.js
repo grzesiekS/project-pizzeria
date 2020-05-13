@@ -127,9 +127,6 @@ export class Booking {
     thisBooking.date = thisBooking.datePicker.value;
     thisBooking.hour = utils.hourToNumber(thisBooking.hourPicker.value);
 
-    /*[DONE] remove active class from table */
-    thisBooking.removeActiveTables();
-
     let allAvailable = false;
 
     if(
@@ -169,6 +166,18 @@ export class Booking {
         thisBooking.addActiveTable(table);
       });
     }
+
+    /* [DONE] Add event listener for date piceker */
+    thisBooking.dom.datePicker.addEventListener('update', function(){
+      /*[DONE] remove active class from table */
+      thisBooking.removeActiveTables();
+    });
+
+    /* [DONE] Add event listener for hour piceker */
+    thisBooking.dom.hourPicker.addEventListener('update', function(){
+      /*[DONE] remove active class from table */
+      thisBooking.removeActiveTables();
+    });
 
     /*[DONE] Add event listener for submit*/
     thisBooking.dom.form.addEventListener('submit', function(){
