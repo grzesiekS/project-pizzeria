@@ -253,6 +253,8 @@ export class Booking {
         duration: duration,
         ppl: pplAmount,
         starters: [],
+        address: thisBooking.dom.address.value,
+        phone: thisBooking.dom.phone.value,
       };
 
       /*START LOOP: For all inputs in checkbox for starters */
@@ -313,6 +315,9 @@ export class Booking {
 
     thisBooking.dom.starters = thisBooking.dom.bookingWrapper.querySelectorAll(select.booking.startersInput);
     thisBooking.dom.form = thisBooking.dom.bookingWrapper.querySelector(select.booking.bookingForm);
+
+    thisBooking.dom.address = thisBooking.dom.bookingWrapper.querySelector(select.booking.address);
+    thisBooking.dom.phone = thisBooking.dom.bookingWrapper.querySelector(select.booking.phone);
   }
 
   initWdgets() {
