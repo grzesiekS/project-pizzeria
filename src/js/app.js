@@ -2,6 +2,7 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import {Booking} from './components/Booking.js';
+import { MainPage } from './components/MainPage.js';
 
 const app = {
   initPages: function() {
@@ -123,6 +124,7 @@ const app = {
     thisApp.initPages();
 
     thisApp.initData();
+    thisApp.initMainPage();
     thisApp.initCart();
     thisApp.initBooking();
     thisApp.initStickyHeader();
@@ -139,6 +141,13 @@ const app = {
     thisApp.productList.addEventListener('add-to-cart', function(event){
       app.cart.add(event.detail.product);
     });
+  },
+
+  initMainPage: function(){
+    const thisApp = this;
+
+    const mainPageElement = document.querySelector(select.containerOf.mainPage);
+    thisApp.mainPage = new MainPage(mainPageElement);
   },
 };
 
