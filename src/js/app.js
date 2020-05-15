@@ -58,6 +58,21 @@ const app = {
     }
   },
 
+  disableElements: function() {
+    /*[DONE] Get class list from main page wrapper */
+    const classList = Array.from(document.querySelector(select.containerOf.mainPage).classList);
+
+    /*START IF: Check if main page has active class */
+    if(classList.indexOf('active') != -1){
+      /*[DONE] Add disable class to main-nav*/
+      document.querySelector('.main-nav').classList.add('disable');
+      /*[DONE] Add disable class to cart */
+      document.querySelector('#cart').classList.add('disable');
+
+    /*END IF: Check if main page has active class */
+    }
+  },
+
   initMenu: function() {
     const thisApp = this;
     //console.log('thisApp.data:', thisApp.data);
@@ -125,6 +140,7 @@ const app = {
 
     thisApp.initData();
     thisApp.initMainPage();
+    thisApp.disableElements();
     thisApp.initCart();
     thisApp.initBooking();
     thisApp.initStickyHeader();
