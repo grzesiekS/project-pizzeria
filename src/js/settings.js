@@ -32,6 +32,7 @@ export const select = {
       carouselReview: '#carouselReview',
       carouselWrapper: '.carousel-inner',
       carouselItem: '.carousel-item',
+      activeCarouselItem:'.carousel-item.active'
     }
   },
   widgets: {
