@@ -81,6 +81,16 @@ class MainPage {
       {thisMainPage.changeActiveCarouselItem(thisMainPage.idOfCarouselElem());}
       , 3000);
     });
+
+    /*START LOOP: for all button selecting a section */
+    for(let btn of thisMainPage.dom.btnSectionSelect){
+      /* Add eventlistener button selecting a section */
+      btn.addEventListener('click', function(){
+        event.preventDefault();
+      });
+
+    /*END LOOP: for all button selecting a section */
+    }
   }
 
   getElement(element) {
@@ -92,6 +102,8 @@ class MainPage {
     thisMainPage.dom.carouselWrapper = thisMainPage.dom.wrapper.querySelector(select.mainPage.carousel.carouselWrapper);
     thisMainPage.dom.carouselItems = thisMainPage.dom.wrapper.querySelectorAll(select.mainPage.carousel.carouselItem);
     thisMainPage.dom.dottedList = thisMainPage.dom.wrapper.querySelectorAll(select.mainPage.carousel.dottedList);
+
+    thisMainPage.dom.btnSectionSelect = thisMainPage.dom.wrapper.querySelectorAll(select.mainPage.btnSelect);
   }
 }
 
