@@ -98,3 +98,61 @@
 
   }
 }
+
+.carousel-review-widget {
+  position: relative;
+  margin: 150px 0;
+
+  ul {
+    padding: 0;
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-50%);
+
+    li {
+      display: inline-block;
+      background-color: $color-grey;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-left: 9px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.active {
+        background-color: $color-dark;
+      }
+    }
+  }
+
+  .carousel-item {
+    display: none;
+
+    .carousel-image {
+      flex: 33.3333%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .review-text {
+      flex: 66.6666%;
+      margin-left: 25px;
+
+      .review-subject {
+        margin-top: 0;
+        text-transform: uppercase;
+      }
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+}
