@@ -73,6 +73,24 @@ class MainPage {
     thisMainPage.dom.dottedList[n].classList.add('active');
   }
 
+  removeDisableClass(){
+    /* Select all elements with class disable */
+    const disableElements = document.querySelectorAll('.disable');
+
+    /*START LOOP: for all elements with class disable */
+    for(let disEle of disableElements){
+      /* [DONE] remove disable class from all html element */
+      disEle.classList.remove('disable');
+    /*END LOOP: for all elements with class disable */
+    }
+  }
+
+  orderPageActive(){
+    const thisMainPage = this;
+
+
+  }
+
   initAction(){
     const thisMainPage = this;
 
@@ -84,9 +102,11 @@ class MainPage {
 
     /*START LOOP: for all button selecting a section */
     for(let btn of thisMainPage.dom.btnSectionSelect){
-      /* Add eventlistener button selecting a section */
+      /*[DONE] Add eventlistener button selecting a section */
       btn.addEventListener('click', function(){
         event.preventDefault();
+        thisMainPage.removeDisableClass();
+        thisMainPage.orderPageActive();
       });
 
     /*END LOOP: for all button selecting a section */
