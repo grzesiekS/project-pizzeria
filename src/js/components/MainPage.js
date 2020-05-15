@@ -9,6 +9,7 @@ class MainPage {
     thisMainPage.addDisableClass();
   }
 
+  /*TODO: Move to app.js */
   addDisableClass(){
     const thisMainPage = this;
 
@@ -118,8 +119,11 @@ class MainPage {
     /*[DONE] Add active class for the section with id that equals href atribute */
     document.querySelector(hrefAtr).classList.add('active');
 
-    /* Add class active to link in nav*/
+    /*[DONE] Add class active to link in nav*/
     document.querySelector('[href="'+ hrefAtr +'"]').classList.add('active');
+
+    /*[DONE] change window hash*/
+    window.location.hash = '/' + hrefAtr.replace('#','');
   }
 
   initAction(){
