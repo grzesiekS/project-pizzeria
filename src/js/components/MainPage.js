@@ -79,7 +79,7 @@ class MainPage {
     window.addEventListener('load', function(){
       this.setInterval(function()
       {thisMainPage.changeActiveCarouselItem(thisMainPage.idOfCarouselElem());}
-      , 8000);
+      , 3000);
     });
   }
 
