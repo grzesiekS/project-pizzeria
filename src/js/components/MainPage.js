@@ -85,10 +85,23 @@ class MainPage {
     }
   }
 
-  orderPageActive(){
+  sectionActive(btnClicked){
     const thisMainPage = this;
 
+    /* [DONE] Get link element from the button element */
+    const link = btnClicked.querySelector('a');
 
+    /*[DONE] Get href atribute from link element */
+    const hrefAtr = link.getAttribute('href');
+
+    /*[DONE] remove active class from main page */
+    thisMainPage.dom.wrapper.classList.remove('active');
+
+    /*[DONE] Add active class for the section with id that equals href atribute */
+    document.querySelector(hrefAtr).classList.add('active');
+
+    /* Add class active to link in nav*/
+    document.querySelector('[href="'+ hrefAtr +'"]').classList.add('active');
   }
 
   initAction(){
@@ -106,7 +119,7 @@ class MainPage {
       btn.addEventListener('click', function(){
         event.preventDefault();
         thisMainPage.removeDisableClass();
-        thisMainPage.orderPageActive();
+        thisMainPage.sectionActive(btn);
       });
 
     /*END LOOP: for all button selecting a section */
