@@ -101,12 +101,12 @@
 
 .carousel-review-widget {
   position: relative;
-  margin: 150px 0;
+  margin: 100px 0;
 
   ul {
     padding: 0;
     position: absolute;
-    bottom: -100px;
+    bottom: -75px;
     left: 50%;
     transform: translate(-50%);
 
@@ -116,7 +116,8 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      margin-left: 9px;
+      margin-left: 12px;
+      transition: all 1s;
 
       &:first-child {
         margin-left: 0;
@@ -153,6 +154,21 @@
 
     &.active {
       display: flex;
+      animation: carouselMove 1s;
     }
+  }
+
+  @keyframes carouselMove {
+    0% { opacity: 0;}
+    10% { opacity: 10%;}
+    20% { opacity: 20%;}
+    30% { opacity: 30%;}
+    40% { opacity: 40%;}
+    50% { opacity: 50%;}
+    60% { opacity: 60%;}
+    70% { opacity: 70%;}
+    80% { opacity: 80%;}
+    90% { opacity: 90%;}
+    100% { opacity: 100%;}
   }
 }
