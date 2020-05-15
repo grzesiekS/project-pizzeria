@@ -6,8 +6,26 @@ class MainPage {
 
     thisMainPage.getElement(element);
     thisMainPage.initAction();
+    thisMainPage.addDisableClass();
   }
 
+  addDisableClass(){
+    const thisMainPage = this;
+
+    /*[DONE] Get class list from main page wrapper */
+    const classList = Array.from(thisMainPage.dom.wrapper.classList);
+
+    /*START IF: Check if main page has active class */
+    if(classList.indexOf('active') != -1){
+      /*[DONE] Add disable class to main-nav*/
+      document.querySelector('.main-nav').classList.add('disable');
+      /*[DONE] Add disable class to cart */
+      document.querySelector('#cart').classList.add('disable');
+
+    /*END IF: Check if main page has active class */
+    }
+
+  }
 
   /*[DONE] Function that iterate through numbers of courusels items */
   idOfCarouselElem(){
