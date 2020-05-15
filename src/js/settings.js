@@ -11,6 +11,7 @@ export const select = {
     cart: '#cart',
     pages: '#pages',
     booking: '.booking-wrapper',
+    mainPage: '#main-page',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -24,6 +25,14 @@ export const select = {
     imageWrapper: '.product__images',
     amountWidget: '.widget-amount',
     cartButton: '[href="#add-to-cart"]',
+  },
+  mainPage: {
+    btnSelect: '.btn-section-select',
+    carousel: {
+      carouselReview: '#carouselReview',
+      carouselWrapper: '.carousel-inner',
+      carouselItem: '.carousel-item',
+    }
   },
   widgets: {
     amount: {
