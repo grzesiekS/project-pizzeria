@@ -30,6 +30,7 @@ export const select = {
     btnSelect: '.btn-section-select',
     carousel: {
       carouselReview: '#carouselReview',
+      dottedList: '.carousel-review-widget ul li',
       carouselWrapper: '.carousel-inner',
       carouselItem: '.carousel-item',
       activeCarouselItem:'.carousel-item.active'

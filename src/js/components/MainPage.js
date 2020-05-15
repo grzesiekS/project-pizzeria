@@ -40,6 +40,18 @@ class MainPage {
     }
   }
 
+  removeActiveClassDottedList(){
+    const thisMainPage = this;
+
+    /*START LOOP: for all li items in carousel widget */
+    for(let dot of thisMainPage.dom.dottedList){
+      /*[DONE] remove active class */
+      dot.classList.remove('active');
+
+    /*END LOOP: for all li items in carousel widget */
+    }
+  }
+
   changeActiveCarouselItem(n){
     const thisMainPage = this;
 
@@ -47,6 +59,18 @@ class MainPage {
     thisMainPage.removeActiveClassCarouselItem();
     /* [DONE] change active carousel item */
     thisMainPage.dom.carouselItems[n].classList.add('active');
+
+    /*[DONE] remove active class from dotted list*/
+    thisMainPage.removeActiveClassDottedList();
+    /*[DONE] add activle class for dot element */
+    thisMainPage.changeActiveDot(n);
+  }
+
+  changeActiveDot(n){
+    const thisMainPage = this;
+
+    /* [DONE] Add active class */
+    thisMainPage.dom.dottedList[n].classList.add('active');
   }
 
   initAction(){
@@ -67,7 +91,7 @@ class MainPage {
 
     thisMainPage.dom.carouselWrapper = thisMainPage.dom.wrapper.querySelector(select.mainPage.carousel.carouselWrapper);
     thisMainPage.dom.carouselItems = thisMainPage.dom.wrapper.querySelectorAll(select.mainPage.carousel.carouselItem);
-
+    thisMainPage.dom.dottedList = thisMainPage.dom.wrapper.querySelectorAll(select.mainPage.carousel.dottedList);
   }
 }
 
