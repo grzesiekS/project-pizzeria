@@ -5,6 +5,7 @@ export const select = {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product', // CODE ADDED
     bookingWidget: '#template-booking-widget',
+    mainPageWidget: '#template-main-page-widget',
   },
   containerOf: {
     menu: '#product-list',
@@ -154,4 +155,5 @@ export const templates = {
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
   // CODE ADDED END
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
+  mainPageWidget: Handlebars.compile(document.querySelector(select.templateOf.mainPageWidget).innerHTML),
 };

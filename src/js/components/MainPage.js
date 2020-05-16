@@ -1,9 +1,11 @@
-import { select } from '../settings.js';
+import { select, templates } from '../settings.js';
+import utils from '../utils.js';
 
 class MainPage {
   constructor(element) {
     const thisMainPage = this;
 
+    thisMainPage.render(element);
     thisMainPage.getElement(element);
     thisMainPage.initAction();
   }
@@ -128,11 +130,21 @@ class MainPage {
     }
   }
 
-  getElement(element) {
+  render(element) {
     const thisMainPage = this;
+
+    /* [DONE] generated HTML code from hendlebar template  */
+    const generatedHTML = templates.mainPageWidget();
 
     thisMainPage.dom = {};
     thisMainPage.dom.wrapper = element;
+
+    /* [DONE] Add dom element genereted from html to main page section */
+    thisMainPage.dom.wrapper.appendChild(utils.createDOMFromHTML(generatedHTML));
+  }
+
+  getElement() {
+    const thisMainPage = this;
 
     thisMainPage.dom.carouselWrapper = thisMainPage.dom.wrapper.querySelector(select.mainPage.carousel.carouselWrapper);
     thisMainPage.dom.carouselItems = thisMainPage.dom.wrapper.querySelectorAll(select.mainPage.carousel.carouselItem);
