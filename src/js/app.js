@@ -63,11 +63,11 @@ const app = {
     const classList = Array.from(document.querySelector(select.containerOf.mainPage).classList);
 
     /*START IF: Check if main page has active class */
-    if(classList.indexOf('active') != -1){
+    if(classList.indexOf('active') == -1){
       /*[DONE] Add disable class to main-nav*/
-      document.querySelector('.main-nav').classList.add('disable');
+      document.querySelector('.main-nav').classList.remove('disable');
       /*[DONE] Add disable class to cart */
-      document.querySelector('#cart').classList.add('disable');
+      document.querySelector('#cart').classList.remove('disable');
 
     /*END IF: Check if main page has active class */
     }
