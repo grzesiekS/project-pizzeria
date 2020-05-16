@@ -110,16 +110,18 @@
           {{/each}}
         </div>
       </div>
-      <div class="instagram-photo-wrapper">
-        {{#each instagramPhotos}}
-        <div class="instagram-photo">
-          <div class="icons">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <a href="#"><i class="fas fa-share-alt"></i></a>
+      <div class="instagram-photo">
+        <div class="instagram-photo-wrapper">
+          {{#each instagramPhotos}}
+          <div class="instagram-photo">
+            <div class="icons">
+              <a href="#"><i class="fas fa-heart"></i></a>
+              <a href="#"><i class="fas fa-share-alt"></i></a>
+            </div>
+            {{{ this }}}
           </div>
-          {{{ this }}}
+          {{/each}}
         </div>
-        {{/each}}
         <a href="#" class="instagram-link">View more on Instagram</a>
       </div>
     </div>
