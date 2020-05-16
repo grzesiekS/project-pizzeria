@@ -170,6 +170,10 @@
     position: relative;
     height: 190px;
 
+    &:last-child {
+      margin-right: 0;
+    }
+
     &:nth-child(3n) {
       margin-right: 0;
     }
@@ -224,13 +228,14 @@
       }
     }
   }
-
-  .instagram-link {
-    color: $color-main;
-    margin-top: 12px;
-    flex: 100%;
-  }
 }
+
+.instagram-link {
+  display: block;
+  color: $color-main;
+  margin-top: 16px;
+}
+
 
 @keyframes carouselMove {
   0% {opacity: 0;}
