@@ -113,11 +113,9 @@ class MainPage {
   initAction(){
     const thisMainPage = this;
 
-    window.addEventListener('load', function(){
-      this.setInterval(function()
-      {thisMainPage.changeActiveCarouselItem(thisMainPage.idOfCarouselElem());}
-      , 3000);
-    });
+    window.setInterval(function()
+    {thisMainPage.changeActiveCarouselItem(thisMainPage.idOfCarouselElem());}
+    , 3000);
 
     /*START LOOP: for all button selecting a section */
     for(let btn of thisMainPage.dom.btnSectionSelect){
