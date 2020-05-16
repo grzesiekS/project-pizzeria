@@ -161,9 +161,21 @@ const app = {
 
   initMainPage: function(){
     const thisApp = this;
-
+    const url = settings.db.url + '/' + settings.db.mainPage;
     const mainPageElement = document.querySelector(select.containerOf.mainPage);
-    thisApp.mainPage = new MainPage(mainPageElement);
+
+    thisApp.mainPageData = {};
+
+    fetch(url)
+      .then(function(rawResponse){
+        return rawResponse.json();
+      })
+      .then(function(parsedResponse){
+        thisApp.mainPageData = parsedResponse;
+        for(let setting in thisApp.mainPageData){
+          thisApp.mainPage = new MainPage(mainPageElement, thisApp.mainPageData[setting]);
+        }
+      });
   },
 };
 

@@ -225,6 +225,12 @@
       "max": 9
     }
   ],
+  "main-page": [
+    {
+      "openingHoursStart": "12 pm",
+      "openingHoursEnd": "12 am"
+    }
+  ],
   "order": [],
   "event": [
     {

@@ -146,6 +146,7 @@ export const settings = {
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
     repeatParam: 'repeat_ne=false',
+    mainPage: 'main-page',
   },
 };
 

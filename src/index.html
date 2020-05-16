@@ -72,7 +72,7 @@
   </div>
 
   <script id="template-main-page-widget" type="text/x-handlebars-template">
-    <div class="main-page-wrapper container">
+    <div class="main-page-wrapper container"> <!-- main-page -->
       <div class="secition-select-widget">
         <div class="btn-section-select">
           <a href="#order" class="font-title">Order online</a>
@@ -86,7 +86,7 @@
         </div>
         <div class="section-info">
           <h1 class="font-title">Opening hours</h1>
-          <p>Tue-sun, 12pm - 12 am</p>
+          <p>Tue-sun, {{ openingHoursStart }} - {{ openingHoursEnd }} </p>
         </div>
       </div>
       <div id="carouselReview" class="carousel-review-widget">

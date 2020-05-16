@@ -2,11 +2,13 @@ import { select, templates } from '../settings.js';
 import utils from '../utils.js';
 
 class MainPage {
-  constructor(element) {
+  constructor(element, data) {
     const thisMainPage = this;
 
+    thisMainPage.data = data;
+
     thisMainPage.render(element);
-    thisMainPage.getElement(element);
+    thisMainPage.getElement();
     thisMainPage.initAction();
   }
 
@@ -134,7 +136,7 @@ class MainPage {
     const thisMainPage = this;
 
     /* [DONE] generated HTML code from hendlebar template  */
-    const generatedHTML = templates.mainPageWidget();
+    const generatedHTML = templates.mainPageWidget(thisMainPage.data);
 
     thisMainPage.dom = {};
     thisMainPage.dom.wrapper = element;
