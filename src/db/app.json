@@ -228,7 +228,32 @@
   "main-page": [
     {
       "openingHoursStart": "12 pm",
-      "openingHoursEnd": "12 am"
+      "openingHoursEnd": "12 am",
+      "openingDayStart": "Tue",
+      "openingDayEnd": "sun",
+      "carouselReviews": {
+        "review-1": {
+          "img": "images/assets/pizza-3.jpg",
+          "subject": "Amazing service!",
+          "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
+          "user": "Margaret Osborne",
+          "class": "active"
+        },
+        "review-2": {
+          "img": "images/assets/pizza-4.jpg",
+          "subject": "Fantastic place!",
+          "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
+          "user": "Jhon Doe",
+          "class": ""
+        },
+        "review-3": {
+          "img": "images/assets/pizza-5.jpg",
+          "subject": "Great food!",
+          "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
+          "user": "Dave Smith",
+          "class": ""
+        }
+      }
     }
   ],
   "order": [],
