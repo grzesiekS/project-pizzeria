@@ -101,7 +101,7 @@
 
 .carousel-review-widget {
   position: relative;
-  margin: 100px 0;
+  margin-top: 100px;
 
   ul {
     padding: 0;
@@ -157,28 +157,100 @@
       animation: carouselMove 1s;
     }
   }
+}
 
-  @keyframes carouselMove {
-    0% {opacity: 0;}
+.instagram-photo-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 132px;
 
-    10% {opacity: 10%;}
+  .instagram-photo {
+    flex: 32%;
+    margin: 5px 10px 10px 0;
+    position: relative;
+    height: 190px;
 
-    20% {opacity: 20%;}
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
 
-    30% {opacity: 30%;}
+    &::after {
+      content: "";
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+      display: none;
+      border-radius: 4px;
+    }
 
-    40% {opacity: 40%;}
+    &:hover {
+      .icons {
+        display: block;
+      }
 
-    50% {opacity: 50%;}
+      &::after {
+        display: block;
+      }
+    }
 
-    60% {opacity: 60%;}
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
 
-    70% {opacity: 70%;}
+    .icons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      z-index: 3;
 
-    80% {opacity: 80%;}
+      a {
+        text-decoration: none;
+        color: $color-light;
+        margin: 0 5px;
+        font-size: 26px;
 
-    90% {opacity: 90%;}
-
-    100% {opacity: 100%;}
+        &:hover {
+          color: $color-main;
+        }
+      }
+    }
   }
+
+  .instagram-link {
+    color: $color-main;
+    margin-top: 12px;
+  }
+}
+
+@keyframes carouselMove {
+  0% {opacity: 0;}
+
+  10% {opacity: 10%;}
+
+  20% {opacity: 20%;}
+
+  30% {opacity: 30%;}
+
+  40% {opacity: 40%;}
+
+  50% {opacity: 50%;}
+
+  60% {opacity: 60%;}
+
+  70% {opacity: 70%;}
+
+  80% {opacity: 80%;}
+
+  90% {opacity: 90%;}
+
+  100% {opacity: 100%;}
 }
