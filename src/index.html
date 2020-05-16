@@ -111,48 +111,15 @@
         </div>
       </div>
       <div class="instagram-photo-wrapper">
+        {{#each instagramPhotos}}
         <div class="instagram-photo">
           <div class="icons">
             <a href="#"><i class="fas fa-heart"></i></a>
             <a href="#"><i class="fas fa-share-alt"></i></a>
           </div>
-          <img src="images/assets/pizza-4.jpg" alt="pizza-4">
+          {{{ this }}}
         </div>
-        <div class="instagram-photo">
-          <div class="icons">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <a href="#"><i class="fas fa-share-alt"></i></a>
-          </div>
-          <img src="images/assets/pizza-5.jpg" alt="pizza-5">
-        </div>
-        <div class="instagram-photo">
-          <div class="icons">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <a href="#"><i class="fas fa-share-alt"></i></a>
-          </div>
-          <img src="images/assets/pizza-6.jpg" alt="pizza-6">
-        </div>
-        <div class="instagram-photo">
-          <div class="icons">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <a href="#"><i class="fas fa-share-alt"></i></a>
-          </div>
-          <img src="images/assets/pizza-7.jpg" alt="pizza-7">
-        </div>
-        <div class="instagram-photo">
-          <div class="icons">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <a href="#"><i class="fas fa-share-alt"></i></a>
-          </div>
-          <img src="images/assets/pizza-8.jpg" alt="pizza-8">
-        </div>
-        <div class="instagram-photo">
-          <div class="icons">
-            <a href="#"><i class="fas fa-heart"></i></a>
-            <a href="#"><i class="fas fa-share-alt"></i></a>
-          </div>
-          <img src="images/assets/pizza-9.jpg" alt="pizza-9">
-        </div>
+        {{/each}}
         <a href="#" class="instagram-link">View more on Instagram</a>
       </div>
     </div>
