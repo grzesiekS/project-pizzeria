@@ -250,7 +250,15 @@
           "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
           "user": "Dave Smith"
         }
-      }
+      },
+      "instagramPhotos": [
+        "<img src=\"images/assets/pizza-4.jpg\" alt=\"pizza-4\">",
+        "<img src=\"images/assets/pizza-5.jpg\" alt=\"pizza-5\">",
+        "<img src=\"images/assets/pizza-6.jpg\" alt=\"pizza-6\">",
+        "<img src=\"images/assets/pizza-7.jpg\" alt=\"pizza-7\">",
+        "<img src=\"images/assets/pizza-8.jpg\" alt=\"pizza-8\">",
+        "<img src=\"images/assets/pizza-9.jpg\" alt=\"pizza-9\">"
+      ]
     }
   ],
   "order": [],
