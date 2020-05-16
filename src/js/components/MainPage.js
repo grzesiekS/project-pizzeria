@@ -31,6 +31,16 @@ class MainPage {
     return n;
   }
 
+  setActiveElement() {
+    const thisMainPage = this;
+
+    /*Set active class in first element of the carousel */
+    thisMainPage.dom.carouselItems[0].classList.add('active');
+
+    /*Set active class in first li element in dotted list*/
+    thisMainPage.dom.dottedList[0].classList.add('active');
+  }
+
   removeActiveClassCarouselItem(){
     const thisMainPage = this;
 
@@ -112,6 +122,8 @@ class MainPage {
 
   initAction(){
     const thisMainPage = this;
+
+    thisMainPage.setActiveElement();
 
     window.setInterval(function()
     {thisMainPage.changeActiveCarouselItem(thisMainPage.idOfCarouselElem());}
