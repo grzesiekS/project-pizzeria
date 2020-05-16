@@ -233,21 +233,21 @@
       "openingDayEnd": "sun",
       "carouselReviews": {
         "review-1": {
-          "img": "images/assets/pizza-3.jpg",
+          "img": "<img src=\"images/assets/pizza-3.jpg\" alt=\"pizza-3\">",
           "subject": "Amazing service!",
           "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
           "user": "Margaret Osborne",
           "class": "active"
         },
         "review-2": {
-          "img": "images/assets/pizza-4.jpg",
+          "img": "<img src=\"images/assets/pizza-4.jpg\" alt=\"pizza-4\">",
           "subject": "Fantastic place!",
           "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
           "user": "Jhon Doe",
           "class": ""
         },
         "review-3": {
-          "img": "images/assets/pizza-5.jpg",
+          "img": "<img src=\"images/assets/pizza-5.jpg\" alt=\"pizza-5\">",
           "subject": "Great food!",
           "text-posted": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in urna a quam pretium aliquet. Sed porttitor quam semper congue maximus.",
           "user": "Dave Smith",
