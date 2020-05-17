@@ -201,7 +201,7 @@ export class Booking {
   renderGradientCode() {
     const thisBooking = this;
     let gradientCode = '';
-    let previousValue = '0%,';
+    let previousValue = ' green ';
 
     /*[DONE] Get reservations form the selected day */
     const currentReservation = thisBooking.booked[thisBooking.datePicker.value];
@@ -210,34 +210,36 @@ export class Booking {
     for(let i = settings.hours.open; i <= settings.hours.close; i += 0.5){
       /*IF: current reservation array is not undefined */
       if(currentReservation[i] != undefined){
-        console.log(currentReservation[i]);
         /*SWITCH: length of array */
         const percent = ((i-12) * 100)/(settings.hours.close - 12);
-        //const percent = (i - settings.hours.open) * 10;
         switch (currentReservation[i].length) {
         case 1:
-          gradientCode += ' green ' + previousValue + ' green ' + percent + '%,';
-          previousValue = percent + '%,';
+          previousValue += percent + '%,';
+          gradientCode += previousValue + ' green ' + percent + '%,';
+          previousValue = ' green ';
           break;
         case 2:
-          gradientCode += ' orange ' + previousValue + ' orange ' + percent + '%,';
-          previousValue = percent + '%,';
+          previousValue += percent + '%,';
+          gradientCode += previousValue + ' orange ' + percent + '%,';
+          previousValue = ' orange ';
           break;
         case 3:
-          gradientCode += ' red ' + previousValue + ' red ' + percent + '%,';
-          previousValue = percent + '%,';
+          previousValue += percent + '%,';
+          gradientCode += previousValue + ' red ' + percent + '%,';
+          previousValue = ' red ';
           break;
         default:
-          gradientCode += ' red ' + previousValue + ' red ' + percent + '%,';
-          previousValue = percent + '%,';
+          previousValue += percent + '%,';
+          gradientCode += previousValue + ' red ' + percent + '%,';
+          previousValue = ' red ';
         }
 
       /*END IF: current reservation array is not undefined  */
       } else {
         const percent = ((i-12) * 100)/(settings.hours.close - 12);
-        //const percent = (i - settings.hours.open) * 10;
-        gradientCode += ' green ' + previousValue + ' green ' + percent + '%,';
-        previousValue = percent + '%,';
+        previousValue += percent + '%,';
+        gradientCode += previousValue + ' green ' + percent + '%,';
+        previousValue = ' green ';
       }
     /*END LOOP: for all hours */
     }
@@ -249,7 +251,6 @@ export class Booking {
     const thisBooking = this;
 
     const gradientCode = thisBooking.renderGradientCode();
-    console.log(gradientCode);
 
     document.querySelector('.rangeSlider__horizontal').style.background = 'linear-gradient(to right,' + gradientCode + ')';
   }
