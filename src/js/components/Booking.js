@@ -217,8 +217,10 @@ export class Booking {
 
   }
 
-  blockTable(table) {
-    table.classList.add(classNames.booking.tableBooked);
+  blockTable(tables) {
+    for(let table of tables){
+      table.classList.add(classNames.booking.tableBooked);
+    }
   }
 
   verifyTableSelection() {
@@ -270,18 +272,26 @@ export class Booking {
       const duration = parseInt(thisBooking.dom.hoursAmount.querySelector('input').value);
       const pplAmount = parseInt(thisBooking.dom.peopleAmount.querySelector('input').value);
       const tableSelected = thisBooking.dom.bookingWrapper
-        .querySelector(select.booking.tables + '.' + classNames.booking.tableSelected);
+        .querySelectorAll(select.booking.tables + '.' + classNames.booking.tableSelected);
 
       const payload = {
         date: thisBooking.datePicker.value,
         hour: thisBooking.hourPicker.value,
-        table: parseInt(tableSelected.getAttribute('data-table')),
+        table: [],
         duration: duration,
         ppl: pplAmount,
         starters: [],
         address: addressObj.value,
         phone: phoneNumberObj.value,
       };
+
+      /*START LOOP: For all selected tables */
+      for(let selectedTable of tableSelected){
+        /*Add data-table to payload.table */
+        payload.table.push(parseInt(selectedTable.getAttribute('data-table')));
+
+      /*END LOOP: For all selected tables */
+      }
 
       /*START LOOP: For all inputs in checkbox for starters */
       for(let input of thisBooking.dom.starters){
