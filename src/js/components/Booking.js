@@ -100,6 +100,7 @@ export class Booking {
     // console.log('thisBooking.booked', thisBooking.booked);
 
     thisBooking.updateDOM();
+    thisBooking.changeRangeSliderBC();
   }
 
   makeBooked(date, hour, duration, table){
@@ -173,12 +174,14 @@ export class Booking {
     thisBooking.dom.datePicker.addEventListener('update', function(){
       /*[DONE] remove active class from table */
       thisBooking.removeActiveTables();
+      thisBooking.changeRangeSliderBC();
     });
 
     /* [DONE] Add event listener for hour piceker */
     thisBooking.dom.hourPicker.addEventListener('update', function(){
       /*[DONE] remove active class from table */
       thisBooking.removeActiveTables();
+      document.querySelector('.rangeSlider__fill__horizontal').style.opacity = 0;
     });
 
     /* Add event listener for change in the Order Confirmation wrapper */
@@ -193,6 +196,62 @@ export class Booking {
       thisBooking.bookTable();
     });
 
+  }
+
+  renderGradientCode() {
+    const thisBooking = this;
+    let gradientCode = '';
+    let previousValue = '0%,';
+
+    /*[DONE] Get reservations form the selected day */
+    const currentReservation = thisBooking.booked[thisBooking.datePicker.value];
+
+    /*START LOOP: for all hours */
+    for(let i = settings.hours.open; i <= settings.hours.close; i += 0.5){
+      /*IF: current reservation array is not undefined */
+      if(currentReservation[i] != undefined){
+        console.log(currentReservation[i]);
+        /*SWITCH: length of array */
+        const percent = ((i-12) * 100)/(settings.hours.close - 12);
+        //const percent = (i - settings.hours.open) * 10;
+        switch (currentReservation[i].length) {
+        case 1:
+          gradientCode += ' green ' + previousValue + ' green ' + percent + '%,';
+          previousValue = percent + '%,';
+          break;
+        case 2:
+          gradientCode += ' orange ' + previousValue + ' orange ' + percent + '%,';
+          previousValue = percent + '%,';
+          break;
+        case 3:
+          gradientCode += ' red ' + previousValue + ' red ' + percent + '%,';
+          previousValue = percent + '%,';
+          break;
+        default:
+          gradientCode += ' red ' + previousValue + ' red ' + percent + '%,';
+          previousValue = percent + '%,';
+        }
+
+      /*END IF: current reservation array is not undefined  */
+      } else {
+        const percent = ((i-12) * 100)/(settings.hours.close - 12);
+        //const percent = (i - settings.hours.open) * 10;
+        gradientCode += ' green ' + previousValue + ' green ' + percent + '%,';
+        previousValue = percent + '%,';
+      }
+    /*END LOOP: for all hours */
+    }
+
+    return gradientCode.substring(0, gradientCode.length - 1);
+  }
+
+  changeRangeSliderBC() {
+    const thisBooking = this;
+
+    const gradientCode = thisBooking.renderGradientCode();
+    console.log(gradientCode);
+
+    document.querySelector('.rangeSlider__horizontal').style.background = 'linear-gradient(to right,' + gradientCode + ')';
   }
 
   removeActiveTables(){
