@@ -117,7 +117,9 @@ export class Booking {
         thisBooking.booked[date][hourBlock] = [];
       }
 
-      thisBooking.booked[date][hourBlock].push(table);
+      for(let tab of table){
+        thisBooking.booked[date][hourBlock].push(tab);
+      }
     }
   }
 
