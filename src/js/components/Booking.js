@@ -205,23 +205,13 @@ export class Booking {
   }
 
   addActiveTable(tableSelected) {
-    const thisBooking = this;
 
     const tableClassAtr = tableSelected.getAttribute('class');
     /*IF: selected element includes class booked*/
     if(!tableClassAtr.includes(classNames.booking.tableBooked)){
 
-      /*[DONE] Remove active class */
-      thisBooking.removeActiveTables();
-
-      /*[DONE] Add active Class */
-      tableSelected.classList.add(classNames.booking.tableSelected);
-    /*END IF*/
-    }
-
-    /*IF: selected element includes class active */
-    if(tableClassAtr.includes(classNames.booking.tableSelected)){
-      thisBooking.removeActiveTables();
+      /* [DONE] Toggle active class for a selected Table */
+      tableSelected.classList.toggle(classNames.booking.tableSelected);
     /*END IF*/
     }
 
