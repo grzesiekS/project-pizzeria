@@ -181,7 +181,7 @@ export class Booking {
     thisBooking.dom.hourPicker.addEventListener('update', function(){
       /*[DONE] remove active class from table */
       thisBooking.removeActiveTables();
-      document.querySelector('.rangeSlider__fill__horizontal').style.opacity = 0;
+      thisBooking.changeRangeSliderFillBC();
     });
 
     /* Add event listener for change in the Order Confirmation wrapper */
@@ -253,6 +253,10 @@ export class Booking {
     const gradientCode = thisBooking.renderGradientCode();
 
     document.querySelector('.rangeSlider__horizontal').style.background = 'linear-gradient(to right,' + gradientCode + ')';
+  }
+
+  changeRangeSliderFillBC() {
+    document.querySelector('.rangeSlider__fill__horizontal').style.opacity = 0;
   }
 
   removeActiveTables(){
