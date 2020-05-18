@@ -201,7 +201,7 @@ export class Booking {
   renderGradientCode() {
     const thisBooking = this;
     let gradientCode = '';
-    let previousValue = ' green ';
+    let previousColor = ' green ';
 
     /*[DONE] Get reservations form the selected day */
     const currentReservation = thisBooking.booked[thisBooking.datePicker.value];
@@ -214,32 +214,32 @@ export class Booking {
         const percent = ((i-12) * 100)/(settings.hours.close - 12);
         switch (currentReservation[i].length) {
         case 1:
-          previousValue += percent + '%,';
-          gradientCode += previousValue + ' green ' + percent + '%,';
-          previousValue = ' green ';
+          previousColor += percent + '%,';
+          gradientCode += previousColor + ' green ' + percent + '%,';
+          previousColor = ' green ';
           break;
         case 2:
-          previousValue += percent + '%,';
-          gradientCode += previousValue + ' orange ' + percent + '%,';
-          previousValue = ' orange ';
+          previousColor += percent + '%,';
+          gradientCode += previousColor + ' orange ' + percent + '%,';
+          previousColor = ' orange ';
           break;
         case 3:
-          previousValue += percent + '%,';
-          gradientCode += previousValue + ' red ' + percent + '%,';
-          previousValue = ' red ';
+          previousColor += percent + '%,';
+          gradientCode += previousColor + ' red ' + percent + '%,';
+          previousColor = ' red ';
           break;
         default:
-          previousValue += percent + '%,';
-          gradientCode += previousValue + ' red ' + percent + '%,';
-          previousValue = ' red ';
+          previousColor += percent + '%,';
+          gradientCode += previousColor + ' red ' + percent + '%,';
+          previousColor = ' red ';
         }
 
       /*END IF: current reservation array is not undefined  */
       } else {
         const percent = ((i-12) * 100)/(settings.hours.close - 12);
-        previousValue += percent + '%,';
-        gradientCode += previousValue + ' green ' + percent + '%,';
-        previousValue = ' green ';
+        previousColor += percent + '%,';
+        gradientCode += previousColor + ' green ' + percent + '%,';
+        previousColor = ' green ';
       }
     /*END LOOP: for all hours */
     }
