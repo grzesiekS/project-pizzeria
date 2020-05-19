@@ -1,4 +1,4 @@
-import { select, templates } from '../settings.js';
+import { select, templates, classNames } from '../settings.js';
 import utils from '../utils.js';
 
 class MainPage {
@@ -35,10 +35,10 @@ class MainPage {
     const thisMainPage = this;
 
     /*Set active class in first element of the carousel */
-    thisMainPage.dom.carouselItems[0].classList.add('active');
+    thisMainPage.dom.carouselItems[0].classList.add(classNames.mainPage.active);
 
     /*Set active class in first li element in dotted list*/
-    thisMainPage.dom.dottedList[0].classList.add('active');
+    thisMainPage.dom.dottedList[0].classList.add(classNames.mainPage.active);
   }
 
   removeActiveClassCarouselItem(){
@@ -47,7 +47,7 @@ class MainPage {
     /*START LOOP: for all carousel items */
     for(let item of thisMainPage.dom.carouselItems){
       /* [DONE] remove active class */
-      item.classList.remove('active');
+      item.classList.remove(classNames.mainPage.active);
 
     /*END LOOP: for all carousel items */
     }
@@ -59,7 +59,7 @@ class MainPage {
     /*START LOOP: for all li items in carousel widget */
     for(let dot of thisMainPage.dom.dottedList){
       /*[DONE] remove active class */
-      dot.classList.remove('active');
+      dot.classList.remove(classNames.mainPage.active);
 
     /*END LOOP: for all li items in carousel widget */
     }
@@ -71,7 +71,7 @@ class MainPage {
     /* [DONE] remove active class */
     thisMainPage.removeActiveClassCarouselItem();
     /* [DONE] change active carousel item */
-    thisMainPage.dom.carouselItems[n].classList.add('active');
+    thisMainPage.dom.carouselItems[n].classList.add(classNames.mainPage.active);
 
     /*[DONE] remove active class from dotted list*/
     thisMainPage.removeActiveClassDottedList();
@@ -83,17 +83,17 @@ class MainPage {
     const thisMainPage = this;
 
     /* [DONE] Add active class */
-    thisMainPage.dom.dottedList[n].classList.add('active');
+    thisMainPage.dom.dottedList[n].classList.add(classNames.mainPage.active);
   }
 
   removeDisableClass(){
     /* Select all elements with class disable */
-    const disableElements = document.querySelectorAll('.disable');
+    const disableElements = document.querySelectorAll(select.mainPage.disableElements);
 
     /*START LOOP: for all elements with class disable */
     for(let disEle of disableElements){
       /* [DONE] remove disable class from all html element */
-      disEle.classList.remove('disable');
+      disEle.classList.remove(classNames.mainPage.disable);
     /*END LOOP: for all elements with class disable */
     }
   }
@@ -108,13 +108,13 @@ class MainPage {
     const hrefAtr = link.getAttribute('href');
 
     /*[DONE] remove active class from main page */
-    thisMainPage.dom.wrapper.classList.remove('active');
+    thisMainPage.dom.wrapper.classList.remove(classNames.mainPage.active);
 
     /*[DONE] Add active class for the section with id that equals href atribute */
-    document.querySelector(hrefAtr).classList.add('active');
+    document.querySelector(hrefAtr).classList.add(classNames.mainPage.active);
 
     /*[DONE] Add class active to link in nav*/
-    document.querySelector('[href="'+ hrefAtr +'"]').classList.add('active');
+    document.querySelector('[href="'+ hrefAtr +'"]').classList.add(classNames.mainPage.active);
 
     /*[DONE] change window hash*/
     window.location.hash = '/' + hrefAtr.replace('#','');

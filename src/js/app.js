@@ -65,9 +65,9 @@ const app = {
     /*START IF: Check if main page has active class */
     if(classList.indexOf('active') == -1){
       /*[DONE] Add disable class to main-nav*/
-      document.querySelector('.main-nav').classList.remove('disable');
+      document.querySelector('.main-nav').classList.remove(classNames.mainPage.disable);
       /*[DONE] Add disable class to cart */
-      document.querySelector('#cart').classList.remove('disable');
+      document.querySelector('#cart').classList.remove(classNames.mainPage.disable);
 
     /*END IF: Check if main page has active class */
     }

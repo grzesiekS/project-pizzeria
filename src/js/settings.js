@@ -29,6 +29,7 @@ export const select = {
   },
   mainPage: {
     btnSelect: '.btn-section-select',
+    disableElements: '.disable',
     carousel: {
       carouselReview: '#carouselReview',
       dottedList: '.carousel-review-widget ul li',
@@ -115,6 +116,10 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  mainPage: {
+    active: 'active',
+    disable: 'disable',
+  }
 };
 
 export const settings = {
