@@ -252,11 +252,11 @@ export class Booking {
 
     const gradientCode = thisBooking.renderGradientCode();
 
-    document.querySelector('.rangeSlider__horizontal').style.background = 'linear-gradient(to right,' + gradientCode + ')';
+    document.querySelector(select.booking.rangeSlider).style.background = 'linear-gradient(to right,' + gradientCode + ')';
   }
 
   changeRangeSliderFillBC() {
-    document.querySelector('.rangeSlider__fill__horizontal').style.opacity = 0;
+    document.querySelector(select.booking.rangeSliderFill).style.opacity = 0;
   }
 
   removeActiveTables(){

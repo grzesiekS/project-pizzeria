@@ -85,6 +85,8 @@ export const select = {
     phone: '[name="phone"]',
     address: '[name="address"]',
     confirmationWrapper: '.order-confirmation',
+    rangeSlider: '.rangeSlider__horizontal',
+    rangeSliderFill: '.rangeSlider__fill__horizontal',
   },
   nav: {
     links: '.main-nav a',
