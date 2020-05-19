@@ -1,12 +1,50 @@
 import { BaseWidget } from './BaseWidget.js';
 import { settings, select } from '../settings.js';
 
-class AmountWidgetBooking extends BaseWidget {
+class AmountWidgetHour extends BaseWidget {
   constructor(element, maxValue) {
     super(element, settings.amountWidget.defaultValue);
 
     const thisWidget = this;
     thisWidget.maxValue = maxValue;
+  }
+
+  isValid(value){
+    const thisWidget = this;
+
+    return !isNaN(value)
+      && value >= settings.amountWidget.defaultMin
+      && value <= thisWidget.maxValue;
+  }
+
+  parseValue(value) {
+    return parseFloat(value);
+  }
+
+  renderValue(){
+    const thisWidget = this;
+
+    thisWidget.dom.input.value = thisWidget.value;
+  }
+
+  initActions() {
+    const thisWidget = this;
+
+    thisWidget.dom.input.addEventListener('change', function(){
+      //thisWidget.setValue(thisWidget.dom.input.value);
+      thisWidget.value = thisWidget.dom.input.value;
+    });
+
+    thisWidget.dom.linkDecrease.addEventListener('click', function(){
+      event.preventDefault();
+      thisWidget.setValue(thisWidget.value - 0.5);
+    });
+
+    thisWidget.dom.linkIncrease.addEventListener('click', function(){
+      event.preventDefault();
+      thisWidget.setValue(thisWidget.value + 0.5);
+    });
+
   }
 
   getElements(){
@@ -18,4 +56,4 @@ class AmountWidgetBooking extends BaseWidget {
   }
 }
 
-export {AmountWidgetBooking};
+export {AmountWidgetHour};
