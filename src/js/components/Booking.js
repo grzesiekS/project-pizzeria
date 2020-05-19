@@ -3,6 +3,7 @@ import utils from '../utils.js';
 import AmountWidget from './AmountWidget.js';
 import { DatePicker } from './DatePicker.js';
 import { HourPicker } from './HourPicker.js';
+import { AmountWidgetHour } from './AmountWidgetHour.js';
 
 export class Booking {
   constructor(element) {
@@ -335,7 +336,7 @@ export class Booking {
       && thisBooking.checkPhoneNumber(phoneNumberObj)
       && thisBooking.checkAddress(addressObj)) {
 
-      const duration = parseInt(thisBooking.dom.hoursAmount.querySelector('input').value);
+      const duration = parseFloat(thisBooking.dom.hoursAmount.querySelector('input').value);
       const pplAmount = parseInt(thisBooking.dom.peopleAmount.querySelector('input').value);
       const tableSelected = thisBooking.dom.bookingWrapper
         .querySelectorAll(select.booking.tables + '.' + classNames.booking.tableSelected);
@@ -427,7 +428,8 @@ export class Booking {
     const thisBooking = this;
 
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
-    thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
+    //thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
+    thisBooking.hoursAmount = new AmountWidgetHour(thisBooking.dom.hoursAmount, settings.amountWidget.defaultMax);
 
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
 
