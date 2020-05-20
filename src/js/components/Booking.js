@@ -365,13 +365,19 @@ export class Booking {
     return duration == 24 ? 0: duration;
   }
 
-  setNewAmountWidgetHour() {
+  durationOverall() {
     const thisBooking = this;
 
     const openHour = thisBooking.openHourDuration();
     const tableDuration = thisBooking.tableDurationHour();
 
-    const duration = openHour >= tableDuration ? tableDuration : openHour;
+    return openHour >= tableDuration ? tableDuration : openHour;
+  }
+
+  setNewAmountWidgetHour() {
+    const thisBooking = this;
+
+    const duration = thisBooking.durationOverall();
 
     /*[DONE] set new  AmountWidgetHour*/
     thisBooking.hoursAmount = new AmountWidgetHour(thisBooking.dom.hoursAmount, duration);
@@ -384,6 +390,8 @@ export class Booking {
     const tableVerifyResult = thisBooking.verifyTableSelection();
     const phoneNumberObj = thisBooking.dom.phone;
     const addressObj = thisBooking.dom.address;
+    const duration = parseFloat(thisBooking.dom.hoursAmount.querySelector('input').value);
+    const durationOverall = thisBooking.durationOverall();
 
     thisBooking.checkPhoneNumber(phoneNumberObj);
     thisBooking.checkAddress(addressObj);
@@ -391,9 +399,9 @@ export class Booking {
     /* IF: verify if table was selected */
     if(!tableVerifyResult
       && thisBooking.checkPhoneNumber(phoneNumberObj)
-      && thisBooking.checkAddress(addressObj)) {
+      && thisBooking.checkAddress(addressObj)
+      && duration <= durationOverall) {
 
-      const duration = parseFloat(thisBooking.dom.hoursAmount.querySelector('input').value);
       const pplAmount = parseInt(thisBooking.dom.peopleAmount.querySelector('input').value);
       const tableSelected = thisBooking.dom.bookingWrapper
         .querySelectorAll(select.booking.tables + '.' + classNames.booking.tableSelected);
