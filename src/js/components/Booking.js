@@ -168,6 +168,7 @@ export class Booking {
       table.addEventListener('click', function(){
         /*[DONE] toggle class active to selected table */
         thisBooking.addActiveTable(table);
+        thisBooking.tableDurationHour();
       });
     }
 
@@ -319,6 +320,45 @@ export class Booking {
       addressObj.classList.add(classNames.cart.fieldError);
       return false;
     }
+  }
+
+  tableDurationHour() {
+    const thisBooking = this;
+    let duration = settings.amountWidget.defaultMax;
+
+    /* [DONE] get selected hour */
+    const selectedHour = utils.hourToNumber(thisBooking.hourPicker.value);
+
+    /*[DONE] search for all selected table */
+    const tableSelected = thisBooking.dom.bookingWrapper.querySelectorAll(select.booking.tables + '.' + classNames.booking.tableSelected);
+
+    /*[DONE] Get reservations form the selected day */
+    const currentReservation = thisBooking.booked[thisBooking.datePicker.value];
+    console.log(currentReservation);
+
+    /*START LOOP: For all Table selected */
+    for(let table of tableSelected) {
+      /*[DONE] get data-table atribute */
+      const dataTable = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
+      console.log(dataTable);
+
+      /*START LOOP: for all reservation in selected Day */
+      for(let reservation in currentReservation) {
+        console.log(currentReservation[reservation]);
+        console.log(reservation);
+        /*START IF: if current reservation have selected table */
+        if(currentReservation[reservation].indexOf(dataTable) != -1 && reservation >= selectedHour) {
+
+          duration = reservation - selectedHour <= duration ? reservation - selectedHour : duration;
+
+        /*END IF: if current reservation have selected table */
+        }
+      /*END LOOP: for all reservation in selected Day */
+      }
+    /*END LOOP: For all Table selected */
+    }
+    console.log(duration);
+    return duration;
   }
 
   bookTable() {
