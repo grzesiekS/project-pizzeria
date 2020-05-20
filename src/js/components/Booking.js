@@ -169,6 +169,7 @@ export class Booking {
         /*[DONE] toggle class active to selected table */
         thisBooking.addActiveTable(table);
         thisBooking.tableDurationHour();
+        thisBooking.openHourDuration();
       });
     }
 
@@ -356,6 +357,13 @@ export class Booking {
     }
 
     return duration;
+  }
+
+  openHourDuration() {
+    const thisBooking = this;
+    const duration = 24 - utils.hourToNumber(thisBooking.hourPicker.value);
+
+    return duration == 24 ? 0: duration;
   }
 
   bookTable() {
