@@ -18,7 +18,7 @@ class AmountWidgetHour extends BaseWidget {
     const thisWidget = this;
 
     return !isNaN(value)
-      && value >= settings.amountWidget.defaultMin
+      && value >= settings.amountWidget.hourMin
       && value <= thisWidget.maxValue;
   }
 
