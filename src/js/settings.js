@@ -119,7 +119,10 @@ export const classNames = {
   mainPage: {
     active: 'active',
     disable: 'disable',
-  }
+  },
+  hourInput: {
+    active: 'active',
+  },
 };
 
 export const settings = {
