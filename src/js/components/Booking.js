@@ -168,8 +168,7 @@ export class Booking {
       table.addEventListener('click', function(){
         /*[DONE] toggle class active to selected table */
         thisBooking.addActiveTable(table);
-        thisBooking.tableDurationHour();
-        thisBooking.openHourDuration();
+        thisBooking.setNewAmountWidgetHour();
       });
     }
 
@@ -364,6 +363,19 @@ export class Booking {
     const duration = 24 - utils.hourToNumber(thisBooking.hourPicker.value);
 
     return duration == 24 ? 0: duration;
+  }
+
+  setNewAmountWidgetHour() {
+    const thisBooking = this;
+
+    const openHour = thisBooking.openHourDuration();
+    const tableDuration = thisBooking.tableDurationHour();
+
+    const duration = openHour >= tableDuration ? tableDuration : openHour;
+
+    /*[DONE] set new  AmountWidgetHour*/
+    thisBooking.hoursAmount = new AmountWidgetHour(thisBooking.dom.hoursAmount, duration);
+
   }
 
   bookTable() {
