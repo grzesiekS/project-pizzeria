@@ -334,18 +334,15 @@ export class Booking {
 
     /*[DONE] Get reservations form the selected day */
     const currentReservation = thisBooking.booked[thisBooking.datePicker.value];
-    console.log(currentReservation);
 
     /*START LOOP: For all Table selected */
     for(let table of tableSelected) {
       /*[DONE] get data-table atribute */
       const dataTable = parseInt(table.getAttribute(settings.booking.tableIdAttribute));
-      console.log(dataTable);
 
       /*START LOOP: for all reservation in selected Day */
       for(let reservation in currentReservation) {
-        console.log(currentReservation[reservation]);
-        console.log(reservation);
+
         /*START IF: if current reservation have selected table */
         if(currentReservation[reservation].indexOf(dataTable) != -1 && reservation >= selectedHour) {
 
@@ -357,7 +354,7 @@ export class Booking {
       }
     /*END LOOP: For all Table selected */
     }
-    console.log(duration);
+
     return duration;
   }
 
