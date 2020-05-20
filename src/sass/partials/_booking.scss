@@ -217,5 +217,11 @@
     input[type=number] {
       -moz-appearance: textfield;
     }
+
+    .amount {
+      &.active {
+        border: 1px solid $color-danger;
+      }
+    }
   }
 }
