@@ -88,6 +88,7 @@ export const select = {
     confirmationWrapper: '.order-confirmation',
     rangeSlider: '.rangeSlider__horizontal',
     rangeSliderFill: '.rangeSlider__fill__horizontal',
+    hoursAmountInput: '.hours-amount .amount',
   },
   nav: {
     links: '.main-nav a',

@@ -384,6 +384,18 @@ export class Booking {
 
   }
 
+  addClassActiveHourInput() {
+    const thisBooking = this;
+
+    thisBooking.dom.hoursAmountInput.classList.add(classNames.hourInput.active);
+  }
+
+  removeClassActiveHourInput() {
+    const thisBooking = this;
+
+    thisBooking.dom.hoursAmountInput.classList.remove(classNames.hourInput.active);
+  }
+
   bookTable() {
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.booking;
@@ -417,6 +429,7 @@ export class Booking {
         phone: phoneNumberObj.value,
       };
 
+      thisBooking.removeClassActiveHourInput();
       /*START LOOP: For all selected tables */
       for(let selectedTable of tableSelected){
         /*Add data-table to payload.table */
@@ -455,6 +468,9 @@ export class Booking {
 
       thisBooking.blockTable(tableSelected);
       thisBooking.removeActiveTables();
+
+    } else {
+      thisBooking.addClassActiveHourInput();
     /* END IF */
     }
 
@@ -487,6 +503,8 @@ export class Booking {
     thisBooking.dom.address = thisBooking.dom.bookingWrapper.querySelector(select.booking.address);
     thisBooking.dom.phone = thisBooking.dom.bookingWrapper.querySelector(select.booking.phone);
     thisBooking.dom.OrderConfWrapp = thisBooking.dom.bookingWrapper.querySelector(select.booking.confirmationWrapper);
+
+    thisBooking.dom.hoursAmountInput = document.querySelector(select.booking.hoursAmountInput);
   }
 
   initWdgets() {
